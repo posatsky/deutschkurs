@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wohnung</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .example {
+            font-style: italic;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Таблиці з лексикою</h1>
+
+    <h2 style="text-align: center;">Дієслова (Verben)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Німецька</th>
+                <th>Українська</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>aussehen</td>
+                <td>виглядати</td>
+            </tr>
+            <tr>
+                <td>benutzen</td>
+                <td>використовувати</td>
+            </tr>
+            <tr>
+                <td>bezahlen</td>
+                <td>платити</td>
+            </tr>
+            <tr>
+                <td>denken</td>
+                <td>думати</td>
+            </tr>
+            <tr>
+                <td>dürfen</td>
+                <td>могти (дозвіл)</td>
+            </tr>
+            <tr>
+                <td>glauben</td>
+                <td>вірити</td>
+            </tr>
+            <tr>
+                <td>mieten</td>
+                <td>орендувати</td>
+            </tr>
+            <tr>
+                <td>rauchen</td>
+                <td>курити</td>
+            </tr>
+            <tr>
+                <td>renovieren</td>
+                <td>ремонтувати</td>
+            </tr>
+            <tr>
+                <td>wollen</td>
+                <td>хотіти</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 style="text-align: center;">Іменники (Nomen)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Німецька</th>
+                <th>Українська</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>die Anzeige</td>
+                <td>оголошення</td>
+            </tr>
+            <tr>
+                <td>das Baby</td>
+                <td>немовля</td>
+            </tr>
+            <tr>
+                <td>das Bad</td>
+                <td>ванна кімната</td>
+            </tr>
+            <tr>
+                <td>der Balkon</td>
+                <td>балкон</td>
+            </tr>
+            <tr>
+                <td>die Dusche</td>
+                <td>душ</td>
+            </tr>
+            <tr>
+                <td>die Garage</td>
+                <td>гараж</td>
+            </tr>
+            <tr>
+                <td>das Haus</td>
+                <td>дім</td>
+            </tr>
+            <tr>
+                <td>die Heizung</td>
+                <td>опалення</td>
+            </tr>
+            <tr>
+                <td>das Internet</td>
+                <td>інтернет</td>
+            </tr>
+            <tr>
+                <td>die Miete</td>
+                <td>оренда</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 style="text-align: center;">Прикметники (Adjektive)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Німецька</th>
+                <th>Українська</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>billig</td>
+                <td>дешевий</td>
+            </tr>
+            <tr>
+                <td>dunkel</td>
+                <td>темний</td>
+            </tr>
+            <tr>
+                <td>erlaubt</td>
+                <td>дозволений</td>
+            </tr>
+            <tr>
+                <td>groß</td>
+                <td>великий</td>
+            </tr>
+            <tr>
+                <td>hell</td>
+                <td>світлий</td>
+            </tr>
+            <tr>
+                <td>jung</td>
+                <td>молодий</td>
+            </tr>
+            <tr>
+                <td>kalt</td>
+                <td>холодний</td>
+            </tr>
+            <tr>
+                <td>modern</td>
+                <td>сучасний</td>
+            </tr>
+            <tr>
+                <td>ruhig</td>
+                <td>спокійний</td>
+            </tr>
+            <tr>
+                <td>wichtig</td>
+                <td>важливий</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 style="text-align: center;">Інші слова (Andere Wörter)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Німецька</th>
+                <th>Українська</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>also</td>
+                <td>отже</td>
+            </tr>
+            <tr>
+                <td>an</td>
+                <td>на</td>
+            </tr>
+            <tr>
+                <td>genau</td>
+                <td>точно</td>
+            </tr>
+            <tr>
+                <td>wenig</td>
+                <td>мало</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 style="text-align: center;">Перевірте свої знання</h2>
+    <div style="text-align: center; margin: 20px;">
+        <button onclick="startQuiz()">Розпочати тест</button>
+        <p id="quiz-question" style="margin-top: 20px;"></p>
+        <input id="answer" type="text" placeholder="Ваша відповідь">
+        <button onclick="checkAnswer()">Перевірити</button>
+        <p id="feedback" style="margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        const words = [
+            { german: "aussehen", ukrainian: "виглядати", example: "Er sieht heute müde aus." },
+            { german: "benutzen", ukrainian: "використовувати", example: "Kann ich deinen Stift benutzen?" },
+            { german: "bezahlen", ukrainian: "платити", example: "Er möchte die Rechnung bezahlen." },
+            { german: "denken", ukrainian: "думати", example: "Ich denke oft an dich." },
+            { german: "dürfen", ukrainian: "могти (дозвіл)", example: "Darf ich hier parken?" },
+        ];
+
+        let currentWord;
+
+        function startQuiz() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById("quiz-question").innerText = `Перекладіть слово: ${currentWord.german}`;
+            document.getElementById("answer").value = "";
+            document.getElementById("feedback").innerText = "";
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.trim();
+            if (answer === currentWord.ukrainian) {
+                document.getElementById("feedback").innerHTML = `Правильно! Приклад: <span class='example'>${currentWord.example}</span>`;
+            } else {
+                document.getElementById("feedback").innerText = `Неправильно. Правильна відповідь: ${currentWord.ukrainian}`;
+            }
+        }
+    </script>
+</body>
+</html>
