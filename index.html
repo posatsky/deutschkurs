@@ -1,124 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тренування: sein і haben</title>
+    <title>Вивчення німецької мови</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
             margin: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
+        li {
+            background: #0077b6;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
-        th {
-            background-color: #f4f4f4;
-        }
-        input {
-            width: 100%;
-            padding: 5px;
-            text-align: center;
-        }
-        .correct {
-            background-color: #d4edda;
-        }
-        .incorrect {
-            background-color: #f8d7da;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
+        li a {
             color: white;
-            border: none;
-            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
         }
-        button:hover {
-            background-color: #0056b3;
+        li a:hover {
+            background-color: #005f8a;
+            padding-left: 10px;
+            transition: 0.3s;
         }
     </style>
 </head>
 <body>
-    <h1>Тренування: дієслова "sein" і "haben"</h1>
-    <p>Введіть правильні форми дієслів у таблиці та натисніть "Перевірити".</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Особа</th>
-                <th>sein (Präteritum)</th>
-                <th>haben (Präteritum)</th>
-                <th>sein (Präsens)</th>
-                <th>haben (Präsens)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>ich</td>
-                <td><input data-answer="war"></td>
-                <td><input data-answer="hatte"></td>
-                <td><input data-answer="bin"></td>
-                <td><input data-answer="habe"></td>
-            </tr>
-            <tr>
-                <td>du</td>
-                <td><input data-answer="warst"></td>
-                <td><input data-answer="hattest"></td>
-                <td><input data-answer="bist"></td>
-                <td><input data-answer="hast"></td>
-            </tr>
-            <tr>
-                <td>er, sie, es</td>
-                <td><input data-answer="war"></td>
-                <td><input data-answer="hatte"></td>
-                <td><input data-answer="ist"></td>
-                <td><input data-answer="hat"></td>
-            </tr>
-            <tr>
-                <td>wir</td>
-                <td><input data-answer="waren"></td>
-                <td><input data-answer="hatten"></td>
-                <td><input data-answer="sind"></td>
-                <td><input data-answer="haben"></td>
-            </tr>
-            <tr>
-                <td>ihr</td>
-                <td><input data-answer="wart"></td>
-                <td><input data-answer="hattet"></td>
-                <td><input data-answer="seid"></td>
-                <td><input data-answer="habt"></td>
-            </tr>
-            <tr>
-                <td>sie, Sie</td>
-                <td><input data-answer="waren"></td>
-                <td><input data-answer="hatten"></td>
-                <td><input data-answer="sind"></td>
-                <td><input data-answer="haben"></td>
-            </tr>
-        </tbody>
-    </table>
-    <button onclick="checkAnswers()">Перевірити</button>
-
-    <script>
-        function checkAnswers() {
-            const inputs = document.querySelectorAll('input');
-            inputs.forEach(input => {
-                const correctAnswer = input.dataset.answer;
-                if (input.value.trim().toLowerCase() === correctAnswer) {
-                    input.classList.add('correct');
-                    input.classList.remove('incorrect');
-                } else {
-                    input.classList.add('incorrect');
-                    input.classList.remove('correct');
-                }
-            });
-        }
-    </script>
+    <header>
+        <h1>Вивчення німецької мови</h1>
+        <p>Оберіть тему для початку навчання:</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#theme1">Теми кафе</a></li>
+            <li><a href="#theme2">Was machst du?</a></li>
+            <li><a href="#theme3">Вправи на граматику</a></li>
+            <li><a href="#theme4">Розмовні діалоги</a></li>
+            <li><a href="#theme5">Словниковий запас</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
