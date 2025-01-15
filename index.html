@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренування: sein і haben</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+        }
+        .correct {
+            background-color: #d4edda;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тренування: дієслова "sein" і "haben"</h1>
+    <p>Введіть правильні форми дієслів у таблиці та натисніть "Перевірити".</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Особа</th>
+                <th>sein (Präteritum)</th>
+                <th>haben (Präteritum)</th>
+                <th>sein (Präsens)</th>
+                <th>haben (Präsens)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ich</td>
+                <td><input data-answer="war"></td>
+                <td><input data-answer="hatte"></td>
+                <td><input data-answer="bin"></td>
+                <td><input data-answer="habe"></td>
+            </tr>
+            <tr>
+                <td>du</td>
+                <td><input data-answer="warst"></td>
+                <td><input data-answer="hattest"></td>
+                <td><input data-answer="bist"></td>
+                <td><input data-answer="hast"></td>
+            </tr>
+            <tr>
+                <td>er, sie, es</td>
+                <td><input data-answer="war"></td>
+                <td><input data-answer="hatte"></td>
+                <td><input data-answer="ist"></td>
+                <td><input data-answer="hat"></td>
+            </tr>
+            <tr>
+                <td>wir</td>
+                <td><input data-answer="waren"></td>
+                <td><input data-answer="hatten"></td>
+                <td><input data-answer="sind"></td>
+                <td><input data-answer="haben"></td>
+            </tr>
+            <tr>
+                <td>ihr</td>
+                <td><input data-answer="wart"></td>
+                <td><input data-answer="hattet"></td>
+                <td><input data-answer="seid"></td>
+                <td><input data-answer="habt"></td>
+            </tr>
+            <tr>
+                <td>sie, Sie</td>
+                <td><input data-answer="waren"></td>
+                <td><input data-answer="hatten"></td>
+                <td><input data-answer="sind"></td>
+                <td><input data-answer="haben"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="checkAnswers()">Перевірити</button>
+
+    <script>
+        function checkAnswers() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                const correctAnswer = input.dataset.answer;
+                if (input.value.trim().toLowerCase() === correctAnswer) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
