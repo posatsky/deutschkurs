@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренування: Verben </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+        }
+        .correct {
+            background-color: #d4edda;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тренування: Verben mit Vokalwechsel</h1>
+    <p>Введіть правильні форми дієслів у таблиці та натисніть "Перевірити".</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Особа</th>
+                <th>fahren</th>
+                <th>schlafen</th>
+                <th>sprechen</th>
+                <th>nehmen</th>
+                <th>essen</th>
+                <th>lesen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ich</td>
+                <td><input data-answer="fahre"></td>
+                <td><input data-answer="schlafe"></td>
+                <td><input data-answer="spreche"></td>
+                <td><input data-answer="nehme"></td>
+                <td><input data-answer="esse"></td>
+                <td><input data-answer="lese"></td>
+            </tr>
+            <tr>
+                <td>du</td>
+                <td><input data-answer="fährst"></td>
+                <td><input data-answer="schläfst"></td>
+                <td><input data-answer="sprichst"></td>
+                <td><input data-answer="nimmst"></td>
+                <td><input data-answer="isst"></td>
+                <td><input data-answer="liest"></td>
+            </tr>
+            <tr>
+                <td>er, sie, es</td>
+                <td><input data-answer="fährt"></td>
+                <td><input data-answer="schläft"></td>
+                <td><input data-answer="spricht"></td>
+                <td><input data-answer="nimmt"></td>
+                <td><input data-answer="isst"></td>
+                <td><input data-answer="liest"></td>
+            </tr>
+            <tr>
+                <td>wir</td>
+                <td><input data-answer="fahren"></td>
+                <td><input data-answer="schlafen"></td>
+                <td><input data-answer="sprechen"></td>
+                <td><input data-answer="nehmen"></td>
+                <td><input data-answer="essen"></td>
+                <td><input data-answer="lesen"></td>
+            </tr>
+            <tr>
+                <td>ihr</td>
+                <td><input data-answer="fahrt"></td>
+                <td><input data-answer="schlaft"></td>
+                <td><input data-answer="sprecht"></td>
+                <td><input data-answer="nehmt"></td>
+                <td><input data-answer="esst"></td>
+                <td><input data-answer="lest"></td>
+            </tr>
+            <tr>
+                <td>sie, Sie</td>
+                <td><input data-answer="fahren"></td>
+                <td><input data-answer="schlafen"></td>
+                <td><input data-answer="sprechen"></td>
+                <td><input data-answer="nehmen"></td>
+                <td><input data-answer="essen"></td>
+                <td><input data-answer="lesen"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="checkAnswers()">Перевірити</button>
+
+    <script>
+        function checkAnswers() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                const correctAnswer = input.dataset.answer;
+                if (input.value.trim().toLowerCase() === correctAnswer) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
