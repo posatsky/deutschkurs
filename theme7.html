@@ -1,0 +1,151 @@
+Роман Посацький, [15.01.2025 11:51]
+<!DOCTYPE html> 
+<html lang="uk"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Німецько-український словничок</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            padding: 20px; 
+            background-color: #f9f9f9; 
+        } 
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 20px; 
+        } 
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            text-align: left; 
+        } 
+        th { 
+            background-color: #4CAF50; 
+            color: white; 
+        } 
+        .result { 
+            margin-top: 20px; 
+            font-size: 1.2em; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Німецько-український словничок</h1> 
+    <table> 
+        <thead> 
+            <tr> 
+                <th>Українська</th> 
+                <th>Німецька</th> 
+            </tr> 
+        </thead> 
+        <tbody id="dictionaryTable"> 
+        </tbody> 
+    </table> 
+ 
+    <h2>Перевір себе</h2> 
+    <form id="quizForm"> 
+        <label for="ukrainianWord">Введи переклад для: <span id="randomWord"></span></label> 
+        <input type="text" id="userAnswer" required> 
+        <button type="submit">Перевірити</button> 
+    </form> 
+ 
+    <div class="result" id="resultMessage"></div> 
+ 
+    <script> 
+        const dictionary = { 
+            "іменники": { 
+                "die Tante": "тітка", 
+                "der Onkel": "дядько", 
+                "die Oma": "бабуся", 
+                "der Opa": "дідусь", 
+                "die Eltern": "батьки", 
+                "die Geschwister": "брати і сестри", 
+                "die Großeltern": "дідусь і бабуся", 
+                "der Partner": "партнер", 
+                "die Partnerin": "партнерка", 
+                "der Papa": "тато", 
+                "die Mama": "мама", 
+                "die Tochter": "дочка", 
+                "der Sohn": "син", 
+                "das Familienfest": "сімейне свято", 
+                "der Wunsch": "бажання", 
+                "der Stress": "стрес" 
+            }, 
+            "дієслова": { 
+                "abholen": "забирати", 
+                "bleiben": "залишатися", 
+                "feiern": "святкувати", 
+                "leiten": "керувати", 
+                "reparieren": "ремонтувати", 
+                "mitmachen": "брати участь", 
+                "müssen": "мусити", 
+                "organisieren": "організовувати", 
+                "suchen": "шукати", 
+                "joggen": "бігати підтюпцем", 
+                "tanzen": "танцювати" 
+            }, 
+            "прикметники": { 
+                "ledig": "неодружений", 
+                "nervös": "нервовий", 
+                "geschieden": "розлучений", 
+                "glücklich": "щасливий", 
+                "streng": "суворий", 
+                "schrecklich": "жахливий", 
+                "verliebt": "закоханий", 
+                "weiß": "білий" 
+            }, 
+            "інші слова": { 
+                "endlich": "нарешті", 
+                "zu spät/früh": "запізно/занадто рано", 
+                "früher": "раніше" 
+            } 
+        }; 
+ 
+        // Заповнюємо таблицю 
+        const dictionaryTable = document.getElementById("dictionaryTable"); 
+        for (let [category, words] of Object.entries(dictionary)) { 
+            for (let [german, ukrainian] of Object.entries(words)) { 
+                let row = <tr><td>${ukrainian}</td><td>${german}</td></tr>; 
+                dictionaryTable.innerHTML += row; 
+            } 
+        } 
+ 
+        // Логіка для перевірки 
+        const allWords = Object.entries(dictionary).flatMap(([_, words]) => Object.entries(words));
+        const randomWordElement = document.getElementById('randomWord'); 
+        const resultMessage = document.getElementById('resultMessage'); 
+        const form = document.getElementById('quizForm'); 
+        const userAnswer = document.getElementById('userAnswer'); 
+ 
+        let correctAnswers = 0; 
+        let totalAttempts = 0; 
+ 
+        function getRandomWord() { 
+            return allWords[Math.floor(Math.random() * allWords.length)]; 
+        } 
+ 
+        let currentPair = getRandomWord(); 
+        randomWordElement.textContent = currentPair[1]; 
+ 
+        form.addEventListener('submit', (event) => { 
+            event.preventDefault(); 
+            const userTranslation = userAnswer.value.trim(); 
+            totalAttempts++; 
+            if (userTranslation === currentPair[0]) { 
+                correctAnswers++; 
+                resultMessage.textContent = Правильно! 🎉 Ваша успішність: ${((correctAnswers / totalAttempts) * 100).toFixed(2)}%; 
+                resultMessage.style.color = 'green'; 
+            } else { 
+                resultMessage.textContent = Неправильно. Правильна відповідь: ${currentPair[0]} Ваша успішність: ${((correctAnswers / totalAttempts) * 100).toFixed(2)}%; 
+                resultMessage.style.color = 'red'; 
+            } 
+            userAnswer.value = ''; 
+            currentPair = getRandomWord(); 
+            randomWordElement.textContent = currentPair[1]; 
+        }); 
+    </script> 
+</body> 
+</html>
