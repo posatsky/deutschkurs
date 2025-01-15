@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевір себе</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Перевір себе</h1>
+    
+    <!-- Таблиця словника -->
+    <table>
+        <thead>
+            <tr>
+                <th>Німецьке слово</th>
+                <th>Категорія</th>
+            </tr>
+        </thead>
+        <tbody id="dictionary-table">
+            <tr><td>der Anrufbeantworter</td><td>Іменник</td></tr>
+            <tr><td>der Besuch</td><td>Іменник</td></tr>
+            <tr><td>der Bus</td><td>Іменник</td></tr>
+            <tr><td>die Einladung</td><td>Іменник</td></tr>
+            <tr><td>das Eis</td><td>Іменник</td></tr>
+            <tr><td>der Fahrplan</td><td>Іменник</td></tr>
+            <tr><td>die Familie</td><td>Іменник</td></tr>
+            <tr><td>der Film</td><td>Іменник</td></tr>
+            <tr><td>die Freizeit</td><td>Іменник</td></tr>
+            <tr><td>die Haltestelle</td><td>Іменник</td></tr>
+            <tr><td>das Mineralwasser</td><td>Іменник</td></tr>
+            <tr><td>die Musik</td><td>Іменник</td></tr>
+            <tr><td>anrufen</td><td>Дієслово</td></tr>
+            <tr><td>aufstehen</td><td>Дієслово</td></tr>
+            <tr><td>aufwachen</td><td>Дієслово</td></tr>
+            <tr><td>ausgehen</td><td>Дієслово</td></tr>
+            <tr><td>halb</td><td>Прикметник</td></tr>
+            <tr><td>spät</td><td>Прикметник</td></tr>
+            <tr><td>am</td><td>Інше</td></tr>
+            <tr><td>fertig</td><td>Інше</td></tr>
+            <tr><td>noch</td><td>Інше</td></tr>
+            <tr><td>später</td><td>Інше</td></tr>
+        </tbody>
+    </table>
+
+    <!-- Форма перевірки -->
+    <div class="form-container">
+        <h2>Перевір себе</h2>
+        <p id="random-word">Слово: <strong></strong></p>
+        <input type="text" id="user-input" placeholder="Ваш переклад">
+        <button onclick="checkAnswer()">Перевірити</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        // Словник
+        const dictionary = {
+            "der Anrufbeantworter": "автовідповідач",
+            "der Besuch": "відвідини",
+            "der Bus": "автобус",
+            "die Einladung": "запрошення",
+            "das Eis": "морожене",
+            "der Fahrplan": "розклад",
+            "die Familie": "сім'я",
+            "der Film": "фільм",
+            "die Freizeit": "вільний час",
+            "anrufen": "дзвонити",
+            "aufstehen": "вставати",
+            "aufwachen": "прокидатися",
+            "halb": "половина",
+            "spät": "пізно",
+            "am": "на",
+            "fertig": "готовий"
+        };
+
+        // Вибір випадкового слова
+        let currentWord = "";
+        function getRandomWord() {
+            const keys = Object.keys(dictionary);
+            currentWord = keys[Math.floor(Math.random() * keys.length)];
+            document.getElementById("random-word").innerHTML = `Слово: <strong>${currentWord}</strong>`;
+        }
+
+        // Перевірка відповіді
+        function checkAnswer() {
+            const userInput = document.getElementById("user-input").value.trim();
+            const correctAnswer = dictionary[currentWord];
+            const resultElement = document.getElementById("result");
+
+            if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                resultElement.textContent = "Правильно!";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.textContent = `Неправильно! Правильна відповідь: ${correctAnswer}`;
+                resultElement.style.color = "red";
+            }
+
+            // Очищення поля введення
+            document.getElementById("user-input").value = "";
+            getRandomWord();
+        }
+
+        // Ініціалізація першого слова
+        getRandomWord();
+    </script>
+</body>
+</html>
