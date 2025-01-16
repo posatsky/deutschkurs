@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Partizip II Вправа</title>
+<style>
+body { font-family: sans-serif; }
+.aufgabe { margin-bottom: 10px; }
+.richtig { color: green; }
+.falsch { color: red; }
+#ergebnis { margin-top: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Partizip II Вправа</h1>
+
+<p>Заповніть пропуски правильною формою Partizip II.</p>
+
+<div id="aufgaben"></div>
+
+<button onclick="ueberpruefen()">Перевірити</button>
+
+<div id="ergebnis"></div>
+
+<script>
+const aufgaben = [
+    { satz: "Ich habe heute viel ___ (arbeiten).", loesung: "gearbeitet" },
+    { satz: "Der Mechaniker hat das Auto ___ (reparieren).", loesung: "repariert" },
+    { satz: "Sie hat mir ein Geschenk ___ (geben).", loesung: "gegeben" },
+    { satz: "Wir haben gestern Suppe ___ (kochen).", loesung: "gekocht" },
+    { satz: "Das Kind hat ein Bild ___ (malen).", loesung: "gemalt" },
+    { satz: "Ich habe einen Brief ___ (schreiben).", loesung: "geschrieben" },
+    { satz: "Sie hat das Haus ___ (verkaufen).", loesung: "verkauft" },
+    { satz: "Er hat lange mit seinem Freund ___ (telefonieren).", loesung: "telefoniert" },
+    { satz: "Ich habe meine Hände ___ (waschen).", loesung: "gewaschen" },
+    { satz: "Wir haben Wasser ___ (trinken).", loesung: "getrunken" },
+    { satz: "Ich habe das Buch ___ (finden).", loesung: "gefunden" },
+    { satz: "Sie hat das Handy ___ (benutzen).", loesung: "benutzt" },
+    { satz: "Wir haben ein gutes Essen ___ (essen).", loesung: "gegessen" },
+    { satz: "Er hat einen Film ___ (sehen).", loesung: "gesehen" },
+    { satz: "Ich habe an dich ___ (denken).", loesung: "gedacht" },
+    { satz: "Sie hat viele Fotos ___ (fotografieren).", loesung: "fotografiert" },
+    { satz: "Er hat eine E-Mail ___ (schicken).", loesung: "geschickt" },
+    { satz: "Wir sind nach München ___ (fahren).", loesung: "gefahren" },
+    { satz: "Ich bin in den Park ___ (gehen).", loesung: "gegangen" },
+    { satz: "Er hat seine Eltern ___ (besuchen).", loesung: "besucht" },
+    { satz: "Der Lehrer hat die Schüler ___ (begrüßen).", loesung: "begrüßt" },
+    { satz: "Ich habe dir gern ___ (helfen).", loesung: "geholfen" },
+    { satz: "Wir haben das Zimmer ___ (renovieren).", loesung: "renoviert" },
+    { satz: "Sie hat das Essen online ___ (bestellen).", loesung: "bestellt" },
+    { satz: "Das System hat gut ___ (funktionieren).", loesung: "funktioniert" },
+    { satz: "Er ist schnell nach Hause ___ (laufen).", loesung: "gelaufen" },
+    { satz: "Ich habe sehr gut ___ (schlafen).", loesung: "geschlafen" },
+    { satz: "Sie ist zu Hause ___ (bleiben).", loesung: "geblieben" },
+    { satz: "Ich habe mit meiner Mutter ___ (sprechen).", loesung: "gesprochen" },
+    { satz: "Wir haben ein neues Auto ___ (kaufen).", loesung: "gekauft" },
+];
+
+const aufgabenDiv = document.getElementById('aufgaben');
+const ergebnisDiv = document.getElementById('ergebnis');
+
+aufgaben.forEach((aufgabe, index) => {
+    const div = document.createElement('div');
+    div.className = 'aufgabe';
+    div.innerHTML = `<label for="antwort${index}">${aufgabe.satz}</label>
+                     <input type="text" id="antwort${index}">
+                     <span id="feedback${index}"></span>`;
+    aufgabenDiv.appendChild(div);
+
+    // Додаємо обробник події keydown для кожного поля вводу
+    const inputField = document.getElementById(`antwort${index}`);
+    inputField.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Запобігаємо стандартній поведінці Enter (наприклад, перехід на новий рядок)
+            ueberpruefen(); // Викликаємо функцію перевірки
+        }
+    });
+});
+
+function ueberpruefen() {
+    let richtigeAntworten = 0;
+    aufgaben.forEach((aufgabe, index) => {
+        const antwort = document.getElementById(`antwort${index}`).value.toLowerCase();
+        const feedbackSpan = document.getElementById(`feedback${index}`);
+        if (antwort === aufgabe.loesung) {
+            richtigeAntworten++;
+            feedbackSpan.textContent = "Правильно!";
+            feedbackSpan.className = "richtig";
+        } else {
+            feedbackSpan.textContent = `Неправильно. Правильна відповідь: ${aufgabe.loesung}`;
+            feedbackSpan.className = "falsch";
+        }
+    });
+
+    const prozent = (richtigeAntworten / aufgaben.length) * 100;
+    ergebnisDiv.textContent = `Ви дали ${richtigeAntworten} правильних відповідей з ${aufgaben.length}. Це ${prozent}%.`;
+}
+</script>
+
+</body>
+</html>
