@@ -8,7 +8,11 @@
         body { font-family: Arial, sans-serif; text-align: center; }
         #word { font-size: 24px; margin: 20px; }
         .option { display: block; margin: 10px auto; padding: 10px; width: 250px; font-size: 18px; cursor: pointer; }
-        #result, #score { font-size: 20px; margin-top: 20px; }
+        #result, #score, #progress { font-size: 20px; margin-top: 20px; }
+        .correct { background-color: lightgreen; }
+        .incorrect { background-color: lightcoral; }
+        .progress-bar { width: 80%; height: 20px; background-color: #ddd; margin: 10px auto; border-radius: 10px; }
+        .progress { height: 100%; width: 0%; background-color: green; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -20,6 +24,8 @@
     <button class="option" onclick="checkAnswer(this)"></button>
     <p id="result"></p>
     <p id="score">Правильні: 0 | Всього: 0 | Успішність: 0%</p>
+    <p id="progress-text">Прогрес: 0 / 0 слів</p>
+    <div class="progress-bar"><div class="progress" id="progress-bar"></div></div>
     <button onclick="nextWord()">Наступне слово</button>
 
     <script>
@@ -57,14 +63,31 @@
             { de: "die Übersetzung", ua: "переклад" }
         ];
 
+        let wordsQueue = [...words];  // Черга слів
         let currentWord;
         let correctAnswer;
         let correctCount = 0;
         let totalCount = 0;
+        let totalWords = words.length;
+
+        function shuffleWords() {
+            for (let i = wordsQueue.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [wordsQueue[i], wordsQueue[j]] = [wordsQueue[j], wordsQueue[i]];
+            }
+        }
 
         function nextWord() {
-            const index = Math.floor(Math.random() * words.length);
-            currentWord = words[index];
+            if (wordsQueue.length === 0) {
+                alert("Всі слова вивчені! Почнемо заново.");
+                wordsQueue = [...words];
+                shuffleWords();
+                correctCount = 0;
+                totalCount = 0;
+                updateScore();
+            }
+
+            currentWord = wordsQueue.pop();  // Беремо слово з черги
             document.getElementById("word").textContent = currentWord.de;
 
             const options = document.querySelectorAll(".option");
@@ -74,6 +97,7 @@
             usedAnswers.add(currentWord.ua);
 
             options.forEach((btn, i) => {
+                btn.classList.remove("correct", "incorrect");
                 if (i === correctAnswer) {
                     btn.textContent = currentWord.ua;
                 } else {
@@ -86,25 +110,40 @@
                 }
             });
 
+            updateProgress();
             document.getElementById("result").textContent = "";
         }
 
         function checkAnswer(button) {
             totalCount++;
+            const options = document.querySelectorAll(".option");
+
             if (button.textContent === currentWord.ua) {
                 correctCount++;
+                button.classList.add("correct");
                 document.getElementById("result").textContent = "✅ Правильно!";
             } else {
-                document.getElementById("result").textContent = "❌ Неправильно! Спробуй ще.";
+                button.classList.add("incorrect");
+                document.getElementById("result").textContent = `❌ Неправильно! Правильна відповідь: ${currentWord.ua}`;
+                options[correctAnswer].classList.add("correct");
             }
+
             updateScore();
         }
 
         function updateScore() {
-            let percent = (correctCount / totalCount * 100).toFixed(1);
+            let percent = totalCount > 0 ? (correctCount / totalCount * 100).toFixed(1) : 0;
             document.getElementById("score").textContent = `Правильні: ${correctCount} | Всього: ${totalCount} | Успішність: ${percent}%`;
         }
 
+        function updateProgress() {
+            let completed = totalWords - wordsQueue.length;
+            let progressPercent = (completed / totalWords * 100).toFixed(1);
+            document.getElementById("progress-text").textContent = `Прогрес: ${completed} / ${totalWords} слів`;
+            document.getElementById("progress-bar").style.width = `${progressPercent}%`;
+        }
+
+        shuffleWords();
         nextWord();
     </script>
 </body>
