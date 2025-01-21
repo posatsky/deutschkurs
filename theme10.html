@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра "Вгадай слово"</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #word { font-size: 24px; margin: 20px; }
+        .option { display: block; margin: 10px auto; padding: 10px; width: 250px; font-size: 18px; cursor: pointer; }
+        #result, #score { font-size: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Гра "Вгадай слово"</h1>
+    <p id="word">Німецьке слово</p>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <p id="result"></p>
+    <p id="score">Правильні: 0 | Всього: 0 | Успішність: 0%</p>
+    <button onclick="nextWord()">Наступне слово</button>
+
+    <script>
+        const words = [
+            { de: "die Agentur", ua: "агентство" },
+            { de: "das Arbeitsamt", ua: "біржа праці" },
+            { de: "die Ausbildung", ua: "навчання, освіта" },
+            { de: "der Bahnhof", ua: "вокзал" },
+            { de: "die Bank", ua: "банк" },
+            { de: "der Betrieb", ua: "підприємство" },
+            { de: "die Bewegung", ua: "рух" },
+            { de: "die Chefin", ua: "шефиня" },
+            { de: "die Erklärung", ua: "пояснення" },
+            { de: "die Fabrik", ua: "фабрика" },
+            { de: "die Firma", ua: "фірма" },
+            { de: "die Geburtsstadt", ua: "місто народження" },
+            { de: "der Haushalt", ua: "домогосподарство" },
+            { de: "die Kellnerin", ua: "офіціантка" },
+            { de: "die Werkstatt", ua: "майстерня" },
+            { de: "der Koch", ua: "кухар" },
+            { de: "die Köchin", ua: "кухарка" },
+            { de: "das Konto", ua: "рахунок (у банку)" },
+            { de: "der Motor", ua: "двигун" },
+            { de: "das Motorrad", ua: "мотоцикл" },
+            { de: "die Nachhilfe", ua: "додаткові заняття" },
+            { de: "die Papiere", ua: "документи" },
+            { de: "das Praktikum", ua: "стажування" },
+            { de: "die Prüfung", ua: "іспит" },
+            { de: "die Leistung", ua: "досягнення" },
+            { de: "die Fähigkeit", ua: "здатність" },
+            { de: "der Vertrag", ua: "договір" },
+            { de: "der Stock", ua: "поверх" },
+            { de: "der Supermarkt", ua: "супермаркет" },
+            { de: "die Spiele", ua: "гра" },
+            { de: "die Übersetzung", ua: "переклад" }
+        ];
+
+        let currentWord;
+        let correctAnswer;
+        let correctCount = 0;
+        let totalCount = 0;
+
+        function nextWord() {
+            const index = Math.floor(Math.random() * words.length);
+            currentWord = words[index];
+            document.getElementById("word").textContent = currentWord.de;
+
+            const options = document.querySelectorAll(".option");
+            correctAnswer = Math.floor(Math.random() * 4);
+
+            let usedAnswers = new Set();
+            usedAnswers.add(currentWord.ua);
+
+            options.forEach((btn, i) => {
+                if (i === correctAnswer) {
+                    btn.textContent = currentWord.ua;
+                } else {
+                    let randomWord;
+                    do {
+                        randomWord = words[Math.floor(Math.random() * words.length)].ua;
+                    } while (usedAnswers.has(randomWord));
+                    usedAnswers.add(randomWord);
+                    btn.textContent = randomWord;
+                }
+            });
+
+            document.getElementById("result").textContent = "";
+        }
+
+        function checkAnswer(button) {
+            totalCount++;
+            if (button.textContent === currentWord.ua) {
+                correctCount++;
+                document.getElementById("result").textContent = "✅ Правильно!";
+            } else {
+                document.getElementById("result").textContent = "❌ Неправильно! Спробуй ще.";
+            }
+            updateScore();
+        }
+
+        function updateScore() {
+            let percent = (correctCount / totalCount * 100).toFixed(1);
+            document.getElementById("score").textContent = `Правильні: ${correctCount} | Всього: ${totalCount} | Успішність: ${percent}%`;
+        }
+
+        nextWord();
+    </script>
+</body>
+</html>
