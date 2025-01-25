@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Співставлення слів із зображеннями</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f8f8f8; padding: 20px; }
+        h1 { margin-bottom: 10px; }
+        .container { display: flex; flex-direction: column; align-items: center; }
+        .image-container img { width: 300px; height: auto; border: 2px solid #000; margin-bottom: 20px; }
+        .options button {
+            padding: 10px; margin: 5px; font-size: 18px; cursor: pointer;
+            width: 250px; border: 1px solid #ccc; border-radius: 5px;
+        }
+        .correct { background-color: lightgreen; }
+        .incorrect { background-color: lightcoral; }
+        .progress { font-size: 18px; margin-top: 20px; }
+        .percentage { font-size: 20px; font-weight: bold; margin-top: 10px; }
+        button.restart { margin-top: 15px; padding: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Співстав слова із зображенням</h1>
+    <p>Оберіть правильне слово для зображення:</p>
+
+    <div class="container">
+        <div class="image-container">
+            <img id="wordImage" src="" alt="Зображення">
+        </div>
+        <div class="options" id="optionsContainer"></div>
+        <p id="result"></p>
+        <p class="progress" id="progressText">Прогрес: 0 / 15</p>
+        <p class="percentage" id="percentageText">Правильні відповіді: 0%</p>
+        <button class="restart" onclick="restartGame()">Перезапустити гру</button>
+    </div>
+
+    <script>
+        const words = [
+        { word: "der Stuhl", image: "images/Wie haißt das/stuhl.webp" },
+            { word: "der Tisch", image: "images/Wie haißt das/Tisch.webp" },
+            { word: "das Regal", image: "images/Wie haißt das/Regal.webp" },
+            { word: "das Klassenzimmer", image: "images/Wie haißt das/Klassenzimmer.webp" },
+            { word: "der Computer", image: "images/Wie haißt das/Computer.webp" },
+            { word: "die Uhr", image: "images/Wie haißt das/Uhr.webp" },
+            { word: "der Papierkorb", image: "images/Wie haißt das/Papierkorb.webp" },
+            { word: "die Schule", image: "images/Wie haißt das/Schule.webp" },
+            { word: "das Bild", image: "images/Wie haißt das/Bild.webp" },
+            { word: "der Schwamm", image: "images/Wie haißt das/Schwamm.webp" },
+            { word: "die Tafel", image: "images/Wie haißt das/Tafel.webp" },
+            { word: "das Heft", image: "images/Wie haißt das/Heft.webp" },
+            { word: "der Bleistift", image: "images/Wie haißt das/Bleistift.webp" },
+            { word: "der Radiergummi", image: "images/Wie haißt das/Radiergummi.webp" },
+            { word: "das Buch", image: "images/Wie haißt das/Buch.webp" }
+        ];
+
+        let currentIndex = 0;
+        let correctCount = 0;
+
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function loadQuestion() {
+            if (currentIndex >= words.length) {
+                document.getElementById("result").textContent = `🎉 Гра завершена! Правильних відповідей: ${correctCount} / 15`;
+                return;
+            }
+
+            const wordObj = words[currentIndex];
+            document.getElementById("wordImage").src = wordObj.image;
+
+            const optionsContainer = document.getElementById("optionsContainer");
+            optionsContainer.innerHTML = "";
+
+            let options = [wordObj.word];
+            while (options.length < 4) {
+                let randomWord = words[Math.floor(Math.random() * words.length)].word;
+                if (!options.includes(randomWord)) {
+                    options.push(randomWord);
+                }
+            }
+            shuffleArray(options);
+
+            options.forEach(option => {
+                let button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option, wordObj.word);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById("progressText").textContent = `Прогрес: ${currentIndex + 1} / ${words.length}`;
+            updatePercentage();
+        }
+
+        function checkAnswer(selected, correct) {
+            const buttons = document.querySelectorAll(".options button");
+
+            buttons.forEach(btn => {
+                if (btn.textContent === correct) {
+                    btn.classList.add("correct");
+                } else if (btn.textContent === selected) {
+                    btn.classList.add("incorrect");
+                }
+                btn.disabled = true;
+            });
+
+            if (selected === correct) {
+                correctCount++;
+                document.getElementById("result").textContent = "✅ Правильно!";
+            } else {
+                document.getElementById("result").textContent = `❌ Неправильно! Правильна відповідь: ${correct}`;
+            }
+
+            setTimeout(() => {
+                currentIndex++;
+                loadQuestion();
+            }, 1500);
+        }
+
+        function updatePercentage() {
+            let percentage = ((correctCount / (currentIndex + 1)) * 100).toFixed(2);
+            if (isNaN(percentage)) percentage = 0;
+            document.getElementById("percentageText").textContent = `Правильні відповіді: ${percentage}%`;
+        }
+
+        function restartGame() {
+            currentIndex = 0;
+            correctCount = 0;
+            shuffleArray(words);
+            document.getElementById("result").textContent = "";
+            document.getElementById("percentageText").textContent = "Правильні відповіді: 0%";
+            loadQuestion();
+        }
+
+        shuffleArray(words);
+        loadQuestion();
+    </script>
+
+</body>
+</html>
