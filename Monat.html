@@ -8,10 +8,10 @@
         body { font-family: Arial, sans-serif; text-align: center; }
         h1 { margin-bottom: 10px; }
         .container { display: flex; flex-direction: column; align-items: center; }
-        .month-list { list-style: none; padding: 0; width: 200px; }
+        .month-list { list-style: none; padding: 0; width: 220px; }
         .month-list li {
-            background: lightblue; padding: 10px; margin: 5px; cursor: grab;
-            border-radius: 5px; text-align: center;
+            background: lightblue; padding: 10px; margin: 5px;
+            cursor: grab; border-radius: 5px; text-align: center;
         }
         .correct { background-color: lightgreen; }
         .incorrect { background-color: lightcoral; }
@@ -27,12 +27,13 @@
         <ul class="month-list" id="monthList"></ul>
         <button onclick="checkOrder()">Перевірити</button>
         <button onclick="restartGame()">Перезапустити</button>
+        <p id="resultMessage"></p>
     </div>
 
     <script>
         const months = ["Januar", "Februar", "März", "April", "Mai", "Juni",
                         "Juli", "August", "September", "Oktober", "November", "Dezember"];
-        let shuffledMonths = [];
+        let draggedItem = null;
 
         function shuffleArray(array) {
             return array.sort(() => Math.random() - 0.5);
@@ -41,7 +42,7 @@
         function createList() {
             const list = document.getElementById("monthList");
             list.innerHTML = "";
-            shuffledMonths = shuffleArray([...months]);
+            let shuffledMonths = shuffleArray([...months]);
 
             shuffledMonths.forEach(month => {
                 let listItem = document.createElement("li");
@@ -50,34 +51,50 @@
                 listItem.addEventListener("dragstart", dragStart);
                 listItem.addEventListener("dragover", dragOver);
                 listItem.addEventListener("drop", drop);
+                listItem.addEventListener("dragend", dragEnd);
                 list.appendChild(listItem);
             });
+
+            document.getElementById("resultMessage").textContent = "";
         }
 
         function dragStart(event) {
-            event.dataTransfer.setData("text/plain", event.target.innerText);
-            event.target.classList.add("dragging");
+            draggedItem = event.target;
+            event.dataTransfer.effectAllowed = "move";
+            event.target.style.opacity = "0.5";
         }
 
         function dragOver(event) {
             event.preventDefault();
-            const draggingItem = document.querySelector(".dragging");
-            if (event.target.tagName === "LI" && event.target !== draggingItem) {
-                let list = document.getElementById("monthList");
-                let items = Array.from(list.children);
-                let draggingIndex = items.indexOf(draggingItem);
-                let targetIndex = items.indexOf(event.target);
-                list.insertBefore(draggingItem, draggingIndex < targetIndex ? event.target.nextSibling : event.target);
+            const list = document.getElementById("monthList");
+            let items = Array.from(list.children);
+            let targetItem = event.target;
+            
+            if (targetItem !== draggedItem && targetItem.tagName === "LI") {
+                let draggingIndex = items.indexOf(draggedItem);
+                let targetIndex = items.indexOf(targetItem);
+                
+                if (draggingIndex > targetIndex) {
+                    list.insertBefore(draggedItem, targetItem);
+                } else {
+                    list.insertBefore(draggedItem, targetItem.nextSibling);
+                }
             }
         }
 
         function drop(event) {
             event.preventDefault();
-            document.querySelectorAll(".dragging").forEach(item => item.classList.remove("dragging"));
+        }
+
+        function dragEnd(event) {
+            event.target.style.opacity = "1";
+            draggedItem = null;
         }
 
         function checkOrder() {
             let listItems = document.querySelectorAll(".month-list li");
+            let isCorrect = true;
+
             listItems.forEach((item, index) => {
                 if (item.textContent === months[index]) {
                     item.classList.add("correct");
@@ -85,8 +102,17 @@
                 } else {
                     item.classList.add("incorrect");
                     item.classList.remove("correct");
+                    isCorrect = false;
                 }
             });
+
+            if (isCorrect) {
+                document.getElementById("resultMessage").textContent = "✅ Вітаємо! Всі місяці у правильному порядку!";
+                document.getElementById("resultMessage").style.color = "green";
+            } else {
+                document.getElementById("resultMessage").textContent = "❌ Є помилки! Спробуй ще раз!";
+                document.getElementById("resultMessage").style.color = "red";
+            }
         }
 
         function restartGame() {
