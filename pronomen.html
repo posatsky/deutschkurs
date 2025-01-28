@@ -28,13 +28,39 @@
         th {
             background-color: #ddd;
         }
-        .example {
+        .example, .exercise {
             background-color: #e3f2fd;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        .exercise input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        .exercise button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
+    <script>
+        function checkAnswer(inputId, correctAnswer) {
+            let userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+            let result = document.getElementById(inputId + "_result");
+            if (userAnswer === correctAnswer) {
+                result.textContent = "✅ Правильно!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "❌ Неправильно. Правильна відповідь: " + correctAnswer;
+                result.style.color = "red";
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Personalpronomen (Особові займенники)</h1>
@@ -94,17 +120,45 @@
         </tr>
     </table>
     
-    <h2>Приклади використання</h2>
+    <h2>Вправи</h2>
     
-    <div class="example">
-        <strong>Nominativ:</strong> Ich lerne Deutsch. (Я вчу німецьку.)
-    </div>
-    <div class="example">
-        <strong>Akkusativ:</strong> Ich sehe dich. (Я бачу тебе.)
-    </div>
-    <div class="example">
-        <strong>Dativ:</strong> Ich schenke ihr eine Blume. (Я дарую їй квітку.)
-    </div>
+    <script>
+        let exercises = [
+            ["______ sehe dich. (Я бачу тебе.)", "ich"],
+            ["Er liebt ______ sehr. (Він дуже її любить.)", "sie"],
+            ["Wir treffen ______ morgen. (Ми зустрінемо його завтра.)", "ihn"],
+            ["Ich gebe ______ ein Geschenk. (Я даю їй подарунок.)", "ihr"],
+            ["Kannst du ______ helfen? (Можеш мені допомогти?)", "mir"],
+            ["Er schreibt ______ einen Brief. (Він пише їм листа.)", "ihnen"],
+            ["Ich lade ______ zur Party ein. (Я запрошую вас на вечірку.)", "euch"],
+            ["Er hat ______ gesehen. (Він бачив нас.)", "uns"],
+            ["Wir danken ______ für die Hilfe. (Ми дякуємо вам за допомогу.)", "ihnen"],
+            ["Er zeigt ______ sein neues Auto. (Він показує тобі свою нову машину.)", "dir"],
+            ["Sie erzählt ______ eine Geschichte. (Вона розповідає мені історію.)", "mir"],
+            ["Ich bringe ______ ein Buch. (Я приношу їй книгу.)", "ihr"]
+        ];
+        
+        function generateExercises() {
+            let container = document.getElementById("exercises");
+            exercises.forEach((exercise, index) => {
+                let div = document.createElement("div");
+                div.className = "exercise";
+                div.innerHTML = `
+                    <p><strong>${index + 1}. ${exercise[0]}</strong></p>
+                    <input type="text" id="q${index + 1}">
+                    <button onclick="checkAnswer('q${index + 1}', '${exercise[1]}')">Перевірити</button>
+                    <p id="q${index + 1}_result"></p>
+                `;
+                container.appendChild(div);
+            });
+        }
+    </script>
+    
+    <div id="exercises"></div>
+    
+    <script>
+        generateExercises();
+    </script>
     
 </body>
 </html>
