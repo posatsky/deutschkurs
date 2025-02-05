@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зміни Артиклів у Akkusativ та Dativ</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        table { width: 50%; margin: auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        th { background-color: lightgray; }
+        .exercise { margin-top: 20px; font-weight: bold; }
+        .input-container { margin: 10px; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+    <script>
+        function checkAnswer(id, correctAnswer) {
+            let userAnswer = document.getElementById(id).value.trim();
+            let feedback = document.getElementById(id + "_feedback");
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                feedback.textContent = "✔ Правильно!";
+                feedback.className = "correct";
+            } else {
+                feedback.textContent = "✘ Неправильно. Спробуй ще раз!";
+                feedback.className = "incorrect";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Зміни Артиклів у Akkusativ та Dativ</h2>
+    <table>
+        <tr>
+            <th>Рід</th>
+            <th>Akkusativ</th>
+            <th>Dativ</th>
+        </tr>
+        <tr>
+            <td>Чоловічий (der)</td>
+            <td>den</td>
+            <td>dem</td>
+        </tr>
+        <tr>
+            <td>Жіночий (die)</td>
+            <td>die</td>
+            <td>der</td>
+        </tr>
+        <tr>
+            <td>Середній (das)</td>
+            <td>das</td>
+            <td>dem</td>
+        </tr>
+        <tr>
+            <td>Множина (die)</td>
+            <td>die</td>
+            <td>den (+n до іменника)</td>
+        </tr>
+    </table>
+    
+    <h3>Вправи</h3>
+    <div class="exercise">1. Ich gehe in <input type="text" id="q1"> Park. <button onclick="checkAnswer('q1', 'den')">Перевірити</button> <span id="q1_feedback"></span></div>
+    <div class="exercise">2. Ich bin in <input type="text" id="q2"> Park. <button onclick="checkAnswer('q2', 'dem')">Перевірити</button> <span id="q2_feedback"></span></div>
+    <div class="exercise">3. Sie legt das Buch auf <input type="text" id="q3"> Tisch. <button onclick="checkAnswer('q3', 'den')">Перевірити</button> <span id="q3_feedback"></span></div>
+    <div class="exercise">4. Das Buch liegt auf <input type="text" id="q4"> Tisch. <button onclick="checkAnswer('q4', 'dem')">Перевірити</button> <span id="q4_feedback"></span></div>
+    <div class="exercise">5. Er fährt in <input type="text" id="q5"> Stadt. <button onclick="checkAnswer('q5', 'die')">Перевірити</button> <span id="q5_feedback"></span></div>
+    <div class="exercise">6. Er wohnt in <input type="text" id="q6"> Stadt. <button onclick="checkAnswer('q6', 'der')">Перевірити</button> <span id="q6_feedback"></span></div>
+    <div class="exercise">7. Ich lege das Handy auf <input type="text" id="q7"> Bett. <button onclick="checkAnswer('q7', 'das')">Перевірити</button> <span id="q7_feedback"></span></div>
+    <div class="exercise">8. Das Handy liegt auf <input type="text" id="q8"> Bett. <button onclick="checkAnswer('q8', 'dem')">Перевірити</button> <span id="q8_feedback"></span></div>
+    <div class="exercise">9. Sie gehen in <input type="text" id="q9"> Geschäfte. <button onclick="checkAnswer('q9', 'die')">Перевірити</button> <span id="q9_feedback"></span></div>
+    <div class="exercise">10. Sie sind in <input type="text" id="q10"> Geschäften. <button onclick="checkAnswer('q10', 'den')">Перевірити</button> <span id="q10_feedback"></span></div>
+</body>
+</html>
