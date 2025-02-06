@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прийменники з Dativ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .example {
+            margin-left: 20px;
+            font-style: italic;
+        }
+        .exercise {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #eaf4fc;
+        }
+        .exercise input {
+            margin: 5px;
+            padding: 5px;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            const answers = {
+                'exercise1': 'aus',
+                'exercise2': 'bei',
+                'exercise3': 'mit',
+                'exercise4': 'nach',
+                'exercise5': 'seit',
+                'exercise6': 'von',
+                'exercise7': 'zu'
+            };
+            let score = 0;
+            for (const [key, value] of Object.entries(answers)) {
+                const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+                if (userAnswer === value) {
+                    score++;
+                    document.getElementById(key).style.backgroundColor = 'lightgreen';
+                } else {
+                    document.getElementById(key).style.backgroundColor = 'lightcoral';
+                }
+            }
+            alert('Ви відповіли правильно на ' + score + ' з 7 завдань.');
+        }
+    </script>
+</head>
+<body>
+
+<h1>Прийменники з Dativ</h1>
+
+<div class="section">
+    <h2>1. aus (звідки?)</h2>
+    <p>Прийменник "aus" вказує на походження або матеріал.</p>
+    <p class="example">Er geht um acht Uhr <b>aus</b> dem Haus. (Він виходить з дому о восьмій годині.)</p>
+    <p class="example">Der Stuhl ist <b>aus</b> Metall. (Стілець зроблений з металу.)</p>
+</div>
+
+<div class="section">
+    <h2>2. bei (у кого?, де?)</h2>
+    <p>"bei" використовується для позначення осіб та місць у близькості.</p>
+    <p class="example">Ich bin heute <b>bei</b> Lisa. (Я сьогодні у Лізи.)</p>
+    <p class="example">Augsburg liegt <b>bei</b> München. (Аугсбург знаходиться біля Мюнхена.)</p>
+</div>
+
+<div class="section">
+    <h2>3. mit (з ким?, з чим?)</h2>
+    <p>Прийменник "mit" вказує на супровід або засіб.</p>
+    <p class="example">Ich tanze <b>mit</b> meinem Freund Tango. (Я танцюю танго з моїм другом.)</p>
+    <p class="example">Wir fahren <b>mit</b> dem Bus. (Ми їдемо автобусом.)</p>
+</div>
+
+<div class="section">
+    <h2>4. nach (куди?)</h2>
+    <p>"nach" використовується для напрямків, міст і країн без артикля.</p>
+    <p class="example">Ich fahre <b>nach</b> Deutschland. (Я їду до Німеччини.)</p>
+    <p class="example">Ich fahre <b>nach</b> Frankfurt. (Я їду до Франкфурта.)</p>
+</div>
+
+<div class="exercise">
+    <h2>Вправа</h2>
+    <p>Введіть правильний прийменник:</p>
+    <p>1. Ich komme gerade ______ der Arbeit. <input type="text" id="exercise1"></p>
+    <p>2. Sie wohnt ______ ihren Eltern. <input type="text" id="exercise2"></p>
+    <p>3. Er fährt ______ dem Fahrrad. <input type="text" id="exercise3"></p>
+    <p>4. Wir fliegen ______ Spanien. <input type="text" id="exercise4"></p>
+    <button onclick="checkAnswers()">Перевірити відповіді</button>
+</div>
+
+</body>
+</html>
