@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вивчення німецьких слів</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 60%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; }
+        th { background-color: #f2f2f2; }
+        input { padding: 10px; width: 300px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Вивчення німецьких слів</h1>
+    <table>
+        <tr>
+            <th>Німецька</th>
+            <th>Українська</th>
+        </tr>
+        <script>
+            const words = [
+                { german: "die Apotheke", ukrainian: "аптека" },
+                { german: "der Arm", ukrainian: "рука (передпліччя)" },
+                { german: "der Arzt", ukrainian: "лікар" },
+                { german: "die Ärztin", ukrainian: "лікарка" },
+                { german: "das Auge", ukrainian: "око" },
+                { german: "der Bauch", ukrainian: "живіт" },
+                { german: "das Bein", ukrainian: "нога" },
+                { german: "das Bett", ukrainian: "ліжко" },
+                { german: "die Erkältung", ukrainian: "застуда" },
+                { german: "das Fieber", ukrainian: "гарячка, температура" },
+                { german: "der Finger", ukrainian: "палець (на руці)" },
+                { german: "die Gesundheit", ukrainian: "здоров'я" },
+                { german: "der Grad", ukrainian: "градус" },
+                { german: "das Haar", ukrainian: "волосся" },
+                { german: "der Hals", ukrainian: "шия; горло" },
+                { german: "die Hand", ukrainian: "кисть руки" },
+                { german: "der Husten", ukrainian: "кашель" },
+                { german: "das Knie", ukrainian: "коліно" },
+                { german: "der Kopf", ukrainian: "голова" },
+                { german: "der Körper", ukrainian: "тіло" },
+                { german: "der Krankenpfleger", ukrainian: "медбрат" },
+                { german: "die Krankenschwester", ukrainian: "медсестра" },
+                { german: "die Krankheit", ukrainian: "хвороба" },
+                { german: "die Krankmeldung", ukrainian: "лікарняний лист" },
+                { german: "das Medikament", ukrainian: "ліки" },
+                { german: "der Patient", ukrainian: "пацієнт" },
+                { german: "die Patientin", ukrainian: "пацієнтка" },
+                { german: "das Rezept", ukrainian: "рецепт (медичний)" },
+                { german: "der Schmerz", ukrainian: "біль" },
+                { german: "der Schnupfen", ukrainian: "нежить" },
+                { german: "die Tablette", ukrainian: "таблетка" },
+                { german: "die Tropfen", ukrainian: "краплі" },
+                { german: "bedeuten", ukrainian: "означати" },
+                { german: "einnehmen", ukrainian: "приймати (ліки)" },
+                { german: "krankschreiben", ukrainian: "видавати лікарняний" },
+                { german: "lachen", ukrainian: "сміятися" },
+                { german: "öffnen", ukrainian: "відкривати" },
+                { german: "trainieren", ukrainian: "тренуватися" },
+                { german: "wehtun", ukrainian: "боліти" },
+                { german: "wiederkommen", ukrainian: "повертатися" }
+            ];
+            document.write(words.map(word => `<tr><td>${word.german}</td><td>${word.ukrainian}</td></tr>`).join(''));
+        </script>
+    </table>
+    <h2>Перевір свої знання</h2>
+    <p id="wordPrompt">Введіть німецький переклад слова:</p>
+    <input type="text" id="wordInput" placeholder="Введіть німецьке слово">
+    <button onclick="checkWord()">Перевірити</button>
+    <p id="result"></p>
+    <script>
+        let index = 0;
+        function checkWord() {
+            let input = document.getElementById("wordInput").value.trim();
+            let result = document.getElementById("result");
+            if (input === words[index].german) {
+                result.textContent = "Правильно!";
+                result.style.color = "green";
+                index++;
+                if (index < words.length) {
+                    document.getElementById("wordPrompt").textContent = "Введіть німецький переклад слова: " + words[index].ukrainian;
+                    document.getElementById("wordInput").value = "";
+                } else {
+                    document.getElementById("wordPrompt").textContent = "Всі слова вивчені!";
+                }
+            } else {
+                result.textContent = "Неправильно, спробуйте ще раз!";
+                result.style.color = "red";
+            }
+        }
+        document.getElementById("wordPrompt").textContent = "Введіть німецький переклад слова: " + words[0].ukrainian;
+    </script>
+</body>
+</html>
