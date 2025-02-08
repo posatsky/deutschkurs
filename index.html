@@ -31,6 +31,7 @@
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
+            position: relative;
         }
         li a {
             color: white;
@@ -42,6 +43,33 @@
             background-color: #005f8a;
             padding-left: 10px;
             transition: 0.3s;
+        }
+
+        /* Стилі для підменю */
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: #005f8a;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 200px;
+            border-radius: 5px;
+        }
+        .submenu li {
+            margin: 0;
+            padding: 10px;
+        }
+        .submenu li a {
+            font-size: 1rem;
+        }
+        .submenu li a:hover {
+            background-color: #003f5c;
+        }
+        li:hover .submenu {
+            display: block;
         }
     </style>
 </head>
@@ -57,7 +85,7 @@
             <li><a href="theme7.html">7. Meine Familie und ich</a></li>
             <li><a href="theme8.html">8. Wohnung</a></li>
             <li><a href="theme10.html">10. in Deutschland</a></li>
-            <li><a href="theme13.html">13.Krankenhaus</a></li>
+            <li><a href="theme13.html">13. Krankenhaus</a></li>
             <li><a href="Monat.html">Monat</a></li>
             <li><a href="verb.html">Verben</a></li>
             <li><a href="pronomen.html">Personalpronomen</a></li>
@@ -65,7 +93,13 @@
             <li><a href="artakkdativ.html">Artikel Akkusativ und Dativ</a></li>
             <li><a href="preposition.html">Preposition mit Dativ</a></li>
 
-            Krankenhaus
+            <!-- Новий пункт "Gesundheit" з підменю -->
+            <li>
+                <a href="#">Gesundheit</a>
+                <ul class="submenu">
+                    <li><a href="gute-besserung.html">Gute Besserung</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </body>
