@@ -20,12 +20,17 @@
             text-align: center;
         }
 
-         futter {
+        footer {
             background-color: #0077b6;
             color: white;
             padding: 1rem 0;
             text-align: center;
+            width: 100%;  /* Забезпечує повну ширину */
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
+
         nav {
             margin: 20px;
         }
@@ -64,6 +69,9 @@
             margin: 0;
             min-width: 200px;
             border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
         }
         .submenu li {
             margin: 0;
@@ -77,6 +85,9 @@
         }
         li:hover .submenu {
             display: block;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s;
         }
     </style>
 </head>
@@ -109,7 +120,7 @@
             </li>
         </ul>
     </nav>
-    <br>
-    <futter>2025</futter>
+    
+    <footer>2025</footer>
 </body>
 </html>
