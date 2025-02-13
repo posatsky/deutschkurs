@@ -14,7 +14,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Робимо всю сторінку мінімальною висотою 100% екрану */
+            min-height: 100vh;
         }
         header {
             background-color: #0077b6;
@@ -22,17 +22,14 @@
             padding: 1rem 0;
             text-align: center;
         }
-
         nav {
             margin: 20px;
-            flex-grow: 1; /* Меню розтягується, щоб займати простір */
+            flex-grow: 1;
         }
-
         ul {
             list-style: none;
             padding: 0;
         }
-
         li {
             background: #0077b6;
             margin: 10px 0;
@@ -40,20 +37,18 @@
             border-radius: 5px;
             position: relative;
         }
-
         li a {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
             display: block;
         }
-
         li a:hover {
             background-color: #005f8a;
             padding-left: 10px;
             transition: 0.3s;
         }
-
+        
         /* Стилі для підменю */
         .submenu {
             display: none;
@@ -66,24 +61,24 @@
             margin: 0;
             min-width: 200px;
             border-radius: 5px;
-            z-index: 1000; /* Забезпечує, що підменю буде поверх усього */
+            z-index: 1000;
         }
-
         .submenu li {
             margin: 0;
             padding: 10px;
         }
-
         .submenu li a {
             font-size: 1rem;
         }
-
         .submenu li a:hover {
             background-color: #003f5c;
         }
 
-        li:hover .submenu {
-            display: block;
+        /* Для ПК меню працює на hover */
+        @media (hover: hover) {
+            li:hover .submenu {
+                display: block;
+            }
         }
 
         /* Футер */
@@ -93,7 +88,7 @@
             padding: 1rem 0;
             text-align: center;
             width: 100%;
-            margin-top: auto; /* Футер завжди буде внизу сторінки */
+            margin-top: auto;
         }
     </style>
 </head>
@@ -118,7 +113,7 @@
             <li><a href="preposition.html">Preposition mit Dativ</a></li>
 
             <!-- Новий пункт "Dialoge" з підменю -->
-            <li>
+            <li class="has-submenu">
                 <a href="#">Dialoge</a>
                 <ul class="submenu">
                     <li><a href="gute-besserung.html">Gute Besserung</a></li>
@@ -128,5 +123,27 @@
     </nav>
     
     <footer>2025</footer>
+
+    <script>
+        // Додаємо підтримку підменю на мобільних пристроях
+        document.addEventListener("DOMContentLoaded", function () {
+            let menuItems = document.querySelectorAll(".has-submenu > a");
+
+            menuItems.forEach(function (menuItem) {
+                menuItem.addEventListener("click", function (event) {
+                    let submenu = this.nextElementSibling;
+
+                    if (submenu.style.display === "block") {
+                        submenu.style.display = "none";
+                    } else {
+                        submenu.style.display = "block";
+                    }
+
+                    // Забороняємо стандартний перехід по "#" (щоб не було стрибка сторінки)
+                    event.preventDefault();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
