@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Possessivartikel - Tabelle und Übungen</title>
+    <title>Possessivartikel - Nominativ & Akkusativ Tabellen und Übungen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         th, td {
             border: 1px solid #ccc;
@@ -42,7 +42,9 @@
     </style>
 </head>
 <body>
-    <h1>Possessivartikel - Tabelle</h1>
+    <h1>Possessivartikel Tabellen</h1>
+
+    <h2>1️⃣ Nominativ (Називний відмінок)</h2>
     <table>
         <tr>
             <th>Person</th>
@@ -58,27 +60,43 @@
         <tr><td>es</td><td>sein</td><td>sein</td><td>seine</td><td>seine</td></tr>
         <tr><td>wir</td><td>unser</td><td>unser</td><td>unsere</td><td>unsere</td></tr>
         <tr><td>ihr</td><td>euer</td><td>euer</td><td>eure</td><td>eure</td></tr>
-        <tr><td>sie (они)</td><td>ihr</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
+        <tr><td>sie (вони)</td><td>ihr</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
         <tr><td>Sie (Ви)</td><td>Ihr</td><td>Ihr</td><td>Ihre</td><td>Ihre</td></tr>
     </table>
 
-    <h2>Beispiele</h2>
+    <h2>2️⃣ Akkusativ (Знахідний відмінок)</h2>
+    <table>
+        <tr>
+            <th>Person</th>
+            <th>Maskulin (der)</th>
+            <th>Neutral (das)</th>
+            <th>Feminin (die)</th>
+            <th>Plural (die)</th>
+        </tr>
+        <tr><td>ich</td><td>meinen</td><td>mein</td><td>meine</td><td>meine</td></tr>
+        <tr><td>du</td><td>deinen</td><td>dein</td><td>deine</td><td>deine</td></tr>
+        <tr><td>er</td><td>seinen</td><td>sein</td><td>seine</td><td>seine</td></tr>
+        <tr><td>sie</td><td>ihren</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
+        <tr><td>es</td><td>seinen</td><td>sein</td><td>seine</td><td>seine</td></tr>
+        <tr><td>wir</td><td>unseren</td><td>unser</td><td>unsere</td><td>unsere</td></tr>
+        <tr><td>ihr</td><td>euren</td><td>euer</td><td>eure</td><td>eure</td></tr>
+        <tr><td>sie (вони)</td><td>ihren</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
+        <tr><td>Sie (Ви)</td><td>Ihren</td><td>Ihr</td><td>Ihre</td><td>Ihre</td></tr>
+    </table>
+
+    <h2>Beispiele für Akkusativ:</h2>
     <ul>
         <li>Ich sehe <strong>meinen</strong> Hund. (der Hund)</li>
-        <li>Du hast <strong>dein</strong> Buch. (das Buch)</li>
-        <li>Er besucht <strong>seine</strong> Mutter. (die Mutter)</li>
-        <li>Wir treffen <strong>unsere</strong> Freunde. (die Freunde)</li>
-        <li>Sie ruft <strong>ihren</strong> Vater an. (der Vater)</li>
-        <li>Ihr verkauft <strong>euer</strong> Auto. (das Auto)</li>
-        <li>Sie (вони) mögen <strong>ihre</strong> Lehrer. (die Lehrer)</li>
-        <li>Ich hole <strong>meine</strong> Tasche. (die Tasche)</li>
+        <li>Du kaufst <strong>deinen</strong> Laptop. (der Laptop)</li>
         <li>Er liest <strong>sein</strong> Buch. (das Buch)</li>
-        <li>Wir fahren mit <strong>unserem</strong> Auto. (das Auto)</li>
-        <li>Ihr helft <strong>eurer</strong> Schwester. (die Schwester)</li>
-        <li>Sie (Ви) suchen <strong>Ihren</strong> Schlüssel. (der Schlüssel)</li>
+        <li>Wir besuchen <strong>unsere</strong> Freunde. (die Freunde)</li>
+        <li>Sie ruft <strong>ihren</strong> Vater an. (der Vater)</li>
+        <li>Ihr habt <strong>eure</strong> Schlüssel vergessen. (die Schlüssel)</li>
+        <li>Sie (они) lieben <strong>ihre</strong> Katze. (die Katze)</li>
+        <li>Ich trinke <strong>mein</strong> Wasser. (das Wasser)</li>
     </ul>
 
-    <h2>Übungen mit Autokorrektur</h2>
+    <h2>Übungen mit Autokorrektur (Akkusativ)</h2>
 
     <div class="exercise">
         <p>1. Ich liebe ___ Hund. (mein)</p>
@@ -95,14 +113,14 @@
     </div>
 
     <div class="exercise">
-        <p>3. Er fährt mit ___ Auto. (sein)</p>
+        <p>3. Er liest ___ Buch. (sein)</p>
         <input type="text" id="ex3">
-        <button onclick="checkAnswer('ex3', 'seinem')">Prüfen</button>
+        <button onclick="checkAnswer('ex3', 'sein')">Prüfen</button>
         <span id="res3" class="result"></span>
     </div>
 
     <div class="exercise">
-        <p>4. Wir besuchen ___ Freunde. (unser)</p>
+        <p>4. Wir treffen ___ Freunde. (unser)</p>
         <input type="text" id="ex4">
         <button onclick="checkAnswer('ex4', 'unsere')">Prüfen</button>
         <span id="res4" class="result"></span>
@@ -116,24 +134,10 @@
     </div>
 
     <div class="exercise">
-        <p>6. Ihr verkauft ___ Auto. (euer)</p>
+        <p>6. Ihr habt ___ Schlüssel vergessen. (euer)</p>
         <input type="text" id="ex6">
-        <button onclick="checkAnswer('ex6', 'euer')">Prüfen</button>
+        <button onclick="checkAnswer('ex6', 'eure')">Prüfen</button>
         <span id="res6" class="result"></span>
-    </div>
-
-    <div class="exercise">
-        <p>7. Sie (они) lieben ___ Katze. (ihr)</p>
-        <input type="text" id="ex7">
-        <button onclick="checkAnswer('ex7', 'ihre')">Prüfen</button>
-        <span id="res7" class="result"></span>
-    </div>
-
-    <div class="exercise">
-        <p>8. Wir fahren mit ___ Auto. (unser)</p>
-        <input type="text" id="ex8">
-        <button onclick="checkAnswer('ex8', 'unserem')">Prüfen</button>
-        <span id="res8" class="result"></span>
     </div>
 
     <script>
