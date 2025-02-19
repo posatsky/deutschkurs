@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Possessivartikel - Tabelle und Übungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .exercise {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Possessivartikel - Tabelle</h1>
+    <table>
+        <tr>
+            <th>Person</th>
+            <th>Maskulin (der)</th>
+            <th>Neutral (das)</th>
+            <th>Feminin (die)</th>
+            <th>Plural (die)</th>
+        </tr>
+        <tr><td>ich</td><td>mein</td><td>mein</td><td>meine</td><td>meine</td></tr>
+        <tr><td>du</td><td>dein</td><td>dein</td><td>deine</td><td>deine</td></tr>
+        <tr><td>er</td><td>sein</td><td>sein</td><td>seine</td><td>seine</td></tr>
+        <tr><td>sie</td><td>ihr</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
+        <tr><td>es</td><td>sein</td><td>sein</td><td>seine</td><td>seine</td></tr>
+        <tr><td>wir</td><td>unser</td><td>unser</td><td>unsere</td><td>unsere</td></tr>
+        <tr><td>ihr</td><td>euer</td><td>euer</td><td>eure</td><td>eure</td></tr>
+        <tr><td>sie (они)</td><td>ihr</td><td>ihr</td><td>ihre</td><td>ihre</td></tr>
+        <tr><td>Sie (Ви)</td><td>Ihr</td><td>Ihr</td><td>Ihre</td><td>Ihre</td></tr>
+    </table>
+
+    <h2>Beispiele</h2>
+    <ul>
+        <li>Ich sehe <strong>meinen</strong> Hund. (der Hund)</li>
+        <li>Du hast <strong>dein</strong> Buch. (das Buch)</li>
+        <li>Er besucht <strong>seine</strong> Mutter. (die Mutter)</li>
+        <li>Wir treffen <strong>unsere</strong> Freunde. (die Freunde)</li>
+        <li>Sie ruft <strong>ihren</strong> Vater an. (der Vater)</li>
+        <li>Ihr verkauft <strong>euer</strong> Auto. (das Auto)</li>
+        <li>Sie (вони) mögen <strong>ihre</strong> Lehrer. (die Lehrer)</li>
+        <li>Ich hole <strong>meine</strong> Tasche. (die Tasche)</li>
+        <li>Er liest <strong>sein</strong> Buch. (das Buch)</li>
+        <li>Wir fahren mit <strong>unserem</strong> Auto. (das Auto)</li>
+        <li>Ihr helft <strong>eurer</strong> Schwester. (die Schwester)</li>
+        <li>Sie (Ви) suchen <strong>Ihren</strong> Schlüssel. (der Schlüssel)</li>
+    </ul>
+
+    <h2>Übungen mit Autokorrektur</h2>
+
+    <div class="exercise">
+        <p>1. Ich liebe ___ Hund. (mein)</p>
+        <input type="text" id="ex1">
+        <button onclick="checkAnswer('ex1', 'meinen')">Prüfen</button>
+        <span id="res1" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>2. Du siehst ___ Tasche. (dein)</p>
+        <input type="text" id="ex2">
+        <button onclick="checkAnswer('ex2', 'deine')">Prüfen</button>
+        <span id="res2" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>3. Er fährt mit ___ Auto. (sein)</p>
+        <input type="text" id="ex3">
+        <button onclick="checkAnswer('ex3', 'seinem')">Prüfen</button>
+        <span id="res3" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>4. Wir besuchen ___ Freunde. (unser)</p>
+        <input type="text" id="ex4">
+        <button onclick="checkAnswer('ex4', 'unsere')">Prüfen</button>
+        <span id="res4" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>5. Sie ruft ___ Vater an. (ihr)</p>
+        <input type="text" id="ex5">
+        <button onclick="checkAnswer('ex5', 'ihren')">Prüfen</button>
+        <span id="res5" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>6. Ihr verkauft ___ Auto. (euer)</p>
+        <input type="text" id="ex6">
+        <button onclick="checkAnswer('ex6', 'euer')">Prüfen</button>
+        <span id="res6" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>7. Sie (они) lieben ___ Katze. (ihr)</p>
+        <input type="text" id="ex7">
+        <button onclick="checkAnswer('ex7', 'ihre')">Prüfen</button>
+        <span id="res7" class="result"></span>
+    </div>
+
+    <div class="exercise">
+        <p>8. Wir fahren mit ___ Auto. (unser)</p>
+        <input type="text" id="ex8">
+        <button onclick="checkAnswer('ex8', 'unserem')">Prüfen</button>
+        <span id="res8" class="result"></span>
+    </div>
+
+    <script>
+        function checkAnswer(inputId, correctAnswer) {
+            const userInput = document.getElementById(inputId).value.trim().toLowerCase();
+            const resultSpan = document.getElementById('res' + inputId.slice(-1));
+
+            if (userInput === correctAnswer.toLowerCase()) {
+                resultSpan.textContent = '✅ Richtig!';
+                resultSpan.className = 'result correct';
+            } else {
+                resultSpan.textContent = '❌ Falsch! Richtig: ' + correctAnswer;
+                resultSpan.className = 'result incorrect';
+            }
+        }
+    </script>
+</body>
+</html>
