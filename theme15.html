@@ -1,0 +1,1308 @@
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибір правильного перекладу - Німецькі слова</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .question-block {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .option {
+            margin: 10px 0;
+        }
+        label {
+            font-size: 16px;
+            padding-left: 5px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .option input {
+            transform: scale(1.2);
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            label {
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        function checkAnswer(questionId, correctAnswer) {
+            const radios = document.getElementsByName(questionId);
+            let selected = "";
+            for (let radio of radios) {
+                if (radio.checked) {
+                    selected = radio.value;
+                }
+            }
+            const result = document.getElementById(questionId + "_result");
+            if (selected === correctAnswer) {
+                result.textContent = "✅ Правильно!";
+                result.className = "correct";
+            } else {
+                result.textContent = "❌ Неправильно! Правильна відповідь: " + correctAnswer;
+                result.className = "incorrect";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>🌟 Вибери правильний переклад 🌟</h1>
+    <p style="text-align:center;">Тисни на правильну відповідь та перевір себе!</p>
+<h2>Nomen</h2><div class='question-block'><strong>das Abitur</strong><br>
+            <div class="option">
+                <input type="radio" name="question_1" value="іспит на атестат зрілості" id="question_1_іспит на атестат зрілості">
+                <label for="question_1_іспит на атестат зрілості">іспит на атестат зрілості</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_1" value="програмувати" id="question_1_програмувати">
+                <label for="question_1_програмувати">програмувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_1" value="баскетбол" id="question_1_баскетбол">
+                <label for="question_1_баскетбол">баскетбол</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_1" value="дорослий/доросла" id="question_1_дорослий/доросла">
+                <label for="question_1_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_1', 'іспит на атестат зрілості')">Перевірити</button>
+        <span id="question_1_result"></span>
+        </div>
+        <div class='question-block'><strong>die Angst</strong><br>
+            <div class="option">
+                <input type="radio" name="question_2" value="театральна група" id="question_2_театральна група">
+                <label for="question_2_театральна група">театральна група</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_2" value="іспит на атестат зрілості" id="question_2_іспит на атестат зрілості">
+                <label for="question_2_іспит на атестат зрілості">іспит на атестат зрілості</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_2" value="страх" id="question_2_страх">
+                <label for="question_2_страх">страх</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_2" value="презентація" id="question_2_презентація">
+                <label for="question_2_презентація">презентація</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_2', 'страх')">Перевірити</button>
+        <span id="question_2_result"></span>
+        </div>
+        <div class='question-block'><strong>Basketball</strong><br>
+            <div class="option">
+                <input type="radio" name="question_3" value="ролики" id="question_3_ролики">
+                <label for="question_3_ролики">ролики</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_3" value="співати" id="question_3_співати">
+                <label for="question_3_співати">співати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_3" value="в'язати" id="question_3_в'язати">
+                <label for="question_3_в'язати">в'язати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_3" value="баскетбол" id="question_3_баскетбол">
+                <label for="question_3_баскетбол">баскетбол</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_3', 'баскетбол')">Перевірити</button>
+        <span id="question_3_result"></span>
+        </div>
+        <div class='question-block'><strong>der Chor</strong><br>
+            <div class="option">
+                <input type="radio" name="question_4" value="учителька німецької мови" id="question_4_учителька німецької мови">
+                <label for="question_4_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_4" value="обробляти" id="question_4_обробляти">
+                <label for="question_4_обробляти">обробляти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_4" value="університет" id="question_4_університет">
+                <label for="question_4_університет">університет</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_4" value="хор" id="question_4_хор">
+                <label for="question_4_хор">хор</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_4', 'хор')">Перевірити</button>
+        <span id="question_4_result"></span>
+        </div>
+        <div class='question-block'><strong>der Deutschlehrer</strong><br>
+            <div class="option">
+                <input type="radio" name="question_5" value="село" id="question_5_село">
+                <label for="question_5_село">село</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_5" value="учитель німецької мови" id="question_5_учитель німецької мови">
+                <label for="question_5_учитель німецької мови">учитель німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_5" value="легкий" id="question_5_легкий">
+                <label for="question_5_легкий">легкий</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_5" value="припиняти" id="question_5_припиняти">
+                <label for="question_5_припиняти">припиняти</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_5', 'учитель німецької мови')">Перевірити</button>
+        <span id="question_5_result"></span>
+        </div>
+        <div class='question-block'><strong>die Deutschlehrerin</strong><br>
+            <div class="option">
+                <input type="radio" name="question_6" value="учителька німецької мови" id="question_6_учителька німецької мови">
+                <label for="question_6_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_6" value="дорослий/доросла" id="question_6_дорослий/доросла">
+                <label for="question_6_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_6" value="учитель німецької мови" id="question_6_учитель німецької мови">
+                <label for="question_6_учитель німецької мови">учитель німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_6" value="батьківські збори" id="question_6_батьківські збори">
+                <label for="question_6_батьківські збори">батьківські збори</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_6', 'учителька німецької мови')">Перевірити</button>
+        <span id="question_6_result"></span>
+        </div>
+        <div class='question-block'><strong>das Dorf</strong><br>
+            <div class="option">
+                <input type="radio" name="question_7" value="батьківські збори" id="question_7_батьківські збори">
+                <label for="question_7_батьківські збори">батьківські збори</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_7" value="рахувати" id="question_7_рахувати">
+                <label for="question_7_рахувати">рахувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_7" value="село" id="question_7_село">
+                <label for="question_7_село">село</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_7" value="театральна група" id="question_7_театральна група">
+                <label for="question_7_театральна група">театральна група</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_7', 'село')">Перевірити</button>
+        <span id="question_7_result"></span>
+        </div>
+        <div class='question-block'><strong>der Elternabend</strong><br>
+            <div class="option">
+                <input type="radio" name="question_8" value="театральна група" id="question_8_театральна група">
+                <label for="question_8_театральна група">театральна група</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_8" value="батьківські збори" id="question_8_батьківські збори">
+                <label for="question_8_батьківські збори">батьківські збори</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_8" value="піаніно" id="question_8_піаніно">
+                <label for="question_8_піаніно">піаніно</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_8" value="учитель німецької мови" id="question_8_учитель німецької мови">
+                <label for="question_8_учитель німецької мови">учитель німецької мови</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_8', 'батьківські збори')">Перевірити</button>
+        <span id="question_8_result"></span>
+        </div>
+        <div class='question-block'><strong>der/die Erwachsene</strong><br>
+            <div class="option">
+                <input type="radio" name="question_9" value="легкий" id="question_9_легкий">
+                <label for="question_9_легкий">легкий</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_9" value="під" id="question_9_під">
+                <label for="question_9_під">під</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_9" value="учитель німецької мови" id="question_9_учитель німецької мови">
+                <label for="question_9_учитель німецької мови">учитель німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_9" value="дорослий/доросла" id="question_9_дорослий/доросла">
+                <label for="question_9_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_9', 'дорослий/доросла')">Перевірити</button>
+        <span id="question_9_result"></span>
+        </div>
+        <div class='question-block'><strong>die Fremdsprache</strong><br>
+            <div class="option">
+                <input type="radio" name="question_10" value="іноземна мова" id="question_10_іноземна мова">
+                <label for="question_10_іноземна мова">іноземна мова</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_10" value="піаніно" id="question_10_піаніно">
+                <label for="question_10_піаніно">піаніно</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_10" value="припиняти" id="question_10_припиняти">
+                <label for="question_10_припиняти">припиняти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_10" value="учителька німецької мови" id="question_10_учителька німецької мови">
+                <label for="question_10_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_10', 'іноземна мова')">Перевірити</button>
+        <span id="question_10_result"></span>
+        </div>
+        <div class='question-block'><strong>die Freundschaft</strong><br>
+            <div class="option">
+                <input type="radio" name="question_11" value="дружба" id="question_11_дружба">
+                <label for="question_11_дружба">дружба</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_11" value="наразі" id="question_11_наразі">
+                <label for="question_11_наразі">наразі</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_11" value="співати" id="question_11_співати">
+                <label for="question_11_співати">співати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_11" value="потім" id="question_11_потім">
+                <label for="question_11_потім">потім</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_11', 'дружба')">Перевірити</button>
+        <span id="question_11_result"></span>
+        </div>
+        <div class='question-block'><strong>der Führerschein</strong><br>
+            <div class="option">
+                <input type="radio" name="question_12" value="позитивний" id="question_12_позитивний">
+                <label for="question_12_позитивний">позитивний</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_12" value="пляж" id="question_12_пляж">
+                <label for="question_12_пляж">пляж</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_12" value="водійське посвідчення" id="question_12_водійське посвідчення">
+                <label for="question_12_водійське посвідчення">водійське посвідчення</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_12" value="учитель німецької мови" id="question_12_учитель німецької мови">
+                <label for="question_12_учитель німецької мови">учитель німецької мови</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_12', 'водійське посвідчення')">Перевірити</button>
+        <span id="question_12_result"></span>
+        </div>
+        <div class='question-block'><strong>die Gitarre</strong><br>
+            <div class="option">
+                <input type="radio" name="question_13" value="в'язати" id="question_13_в'язати">
+                <label for="question_13_в'язати">в'язати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_13" value="говорити" id="question_13_говорити">
+                <label for="question_13_говорити">говорити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_13" value="напам'ять" id="question_13_напам'ять">
+                <label for="question_13_напам'ять">напам'ять</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_13" value="гітара" id="question_13_гітара">
+                <label for="question_13_гітара">гітара</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_13', 'гітара')">Перевірити</button>
+        <span id="question_13_result"></span>
+        </div>
+        <div class='question-block'><strong>die Grammatik</strong><br>
+            <div class="option">
+                <input type="radio" name="question_14" value="рахувати" id="question_14_рахувати">
+                <label for="question_14_рахувати">рахувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_14" value="граматика" id="question_14_граматика">
+                <label for="question_14_граматика">граматика</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_14" value="дідусь" id="question_14_дідусь">
+                <label for="question_14_дідусь">дідусь</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_14" value="бабуся" id="question_14_бабуся">
+                <label for="question_14_бабуся">бабуся</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_14', 'граматика')">Перевірити</button>
+        <span id="question_14_result"></span>
+        </div>
+        <div class='question-block'><strong>die Großmutter</strong><br>
+            <div class="option">
+                <input type="radio" name="question_15" value="носити" id="question_15_носити">
+                <label for="question_15_носити">носити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_15" value="рахувати" id="question_15_рахувати">
+                <label for="question_15_рахувати">рахувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_15" value="учителька німецької мови" id="question_15_учителька німецької мови">
+                <label for="question_15_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_15" value="бабуся" id="question_15_бабуся">
+                <label for="question_15_бабуся">бабуся</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_15', 'бабуся')">Перевірити</button>
+        <span id="question_15_result"></span>
+        </div>
+        <div class='question-block'><strong>der Großvater</strong><br>
+            <div class="option">
+                <input type="radio" name="question_16" value="батьківські збори" id="question_16_батьківські збори">
+                <label for="question_16_батьківські збори">батьківські збори</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_16" value="музичний інструмент" id="question_16_музичний інструмент">
+                <label for="question_16_музичний інструмент">музичний інструмент</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_16" value="говорити" id="question_16_говорити">
+                <label for="question_16_говорити">говорити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_16" value="дідусь" id="question_16_дідусь">
+                <label for="question_16_дідусь">дідусь</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_16', 'дідусь')">Перевірити</button>
+        <span id="question_16_result"></span>
+        </div>
+        <div class='question-block'><strong>die Inlineskates</strong><br>
+            <div class="option">
+                <input type="radio" name="question_17" value="одного разу" id="question_17_одного разу">
+                <label for="question_17_одного разу">одного разу</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_17" value="повідомлення в WhatsApp" id="question_17_повідомлення в WhatsApp">
+                <label for="question_17_повідомлення в WhatsApp">повідомлення в WhatsApp</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_17" value="потім" id="question_17_потім">
+                <label for="question_17_потім">потім</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_17" value="ролики" id="question_17_ролики">
+                <label for="question_17_ролики">ролики</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_17', 'ролики')">Перевірити</button>
+        <span id="question_17_result"></span>
+        </div>
+        <div class='question-block'><strong>der Keks</strong><br>
+            <div class="option">
+                <input type="radio" name="question_18" value="припиняти" id="question_18_припиняти">
+                <label for="question_18_припиняти">припиняти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_18" value="хор" id="question_18_хор">
+                <label for="question_18_хор">хор</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_18" value="дорослий/доросла" id="question_18_дорослий/доросла">
+                <label for="question_18_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_18" value="печиво" id="question_18_печиво">
+                <label for="question_18_печиво">печиво</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_18', 'печиво')">Перевірити</button>
+        <span id="question_18_result"></span>
+        </div>
+        <div class='question-block'><strong>das Klavier</strong><br>
+            <div class="option">
+                <input type="radio" name="question_19" value="потім" id="question_19_потім">
+                <label for="question_19_потім">потім</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_19" value="спробувати" id="question_19_спробувати">
+                <label for="question_19_спробувати">спробувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_19" value="наразі" id="question_19_наразі">
+                <label for="question_19_наразі">наразі</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_19" value="піаніно" id="question_19_піаніно">
+                <label for="question_19_піаніно">піаніно</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_19', 'піаніно')">Перевірити</button>
+        <span id="question_19_result"></span>
+        </div>
+        <div class='question-block'><strong>das Musikinstrument</strong><br>
+            <div class="option">
+                <input type="radio" name="question_20" value="печиво" id="question_20_печиво">
+                <label for="question_20_печиво">печиво</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_20" value="передача" id="question_20_передача">
+                <label for="question_20_передача">передача</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_20" value="музичний інструмент" id="question_20_музичний інструмент">
+                <label for="question_20_музичний інструмент">музичний інструмент</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_20" value="шарф" id="question_20_шарф">
+                <label for="question_20_шарф">шарф</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_20', 'музичний інструмент')">Перевірити</button>
+        <span id="question_20_result"></span>
+        </div>
+        <div class='question-block'><strong>die Präsentation</strong><br>
+            <div class="option">
+                <input type="radio" name="question_21" value="говорити" id="question_21_говорити">
+                <label for="question_21_говорити">говорити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_21" value="театральна вистава" id="question_21_театральна вистава">
+                <label for="question_21_театральна вистава">театральна вистава</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_21" value="наразі" id="question_21_наразі">
+                <label for="question_21_наразі">наразі</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_21" value="презентація" id="question_21_презентація">
+                <label for="question_21_презентація">презентація</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_21', 'презентація')">Перевірити</button>
+        <span id="question_21_result"></span>
+        </div>
+        <div class='question-block'><strong>der Schal</strong><br>
+            <div class="option">
+                <input type="radio" name="question_22" value="дорослий/доросла" id="question_22_дорослий/доросла">
+                <label for="question_22_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_22" value="напам'ять" id="question_22_напам'ять">
+                <label for="question_22_напам'ять">напам'ять</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_22" value="шарф" id="question_22_шарф">
+                <label for="question_22_шарф">шарф</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_22" value="одного разу" id="question_22_одного разу">
+                <label for="question_22_одного разу">одного разу</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_22', 'шарф')">Перевірити</button>
+        <span id="question_22_result"></span>
+        </div>
+        <div class='question-block'><strong>die Sendung</strong><br>
+            <div class="option">
+                <input type="radio" name="question_23" value="страх" id="question_23_страх">
+                <label for="question_23_страх">страх</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_23" value="передача" id="question_23_передача">
+                <label for="question_23_передача">передача</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_23" value="в'язати" id="question_23_в'язати">
+                <label for="question_23_в'язати">в'язати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_23" value="обробляти" id="question_23_обробляти">
+                <label for="question_23_обробляти">обробляти</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_23', 'передача')">Перевірити</button>
+        <span id="question_23_result"></span>
+        </div>
+        <div class='question-block'><strong>der Strand</strong><br>
+            <div class="option">
+                <input type="radio" name="question_24" value="пляж" id="question_24_пляж">
+                <label for="question_24_пляж">пляж</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_24" value="потім" id="question_24_потім">
+                <label for="question_24_потім">потім</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_24" value="обробляти" id="question_24_обробляти">
+                <label for="question_24_обробляти">обробляти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_24" value="хор" id="question_24_хор">
+                <label for="question_24_хор">хор</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_24', 'пляж')">Перевірити</button>
+        <span id="question_24_result"></span>
+        </div>
+        <div class='question-block'><strong>die Theatergruppe</strong><br>
+            <div class="option">
+                <input type="radio" name="question_25" value="учителька німецької мови" id="question_25_учителька німецької мови">
+                <label for="question_25_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_25" value="театральна група" id="question_25_театральна група">
+                <label for="question_25_театральна група">театральна група</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_25" value="носити" id="question_25_носити">
+                <label for="question_25_носити">носити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_25" value="презентація" id="question_25_презентація">
+                <label for="question_25_презентація">презентація</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_25', 'театральна група')">Перевірити</button>
+        <span id="question_25_result"></span>
+        </div>
+        <div class='question-block'><strong>das Theaterstück</strong><br>
+            <div class="option">
+                <input type="radio" name="question_26" value="рахувати" id="question_26_рахувати">
+                <label for="question_26_рахувати">рахувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_26" value="театральна вистава" id="question_26_театральна вистава">
+                <label for="question_26_театральна вистава">театральна вистава</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_26" value="гітара" id="question_26_гітара">
+                <label for="question_26_гітара">гітара</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_26" value="говорити" id="question_26_говорити">
+                <label for="question_26_говорити">говорити</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_26', 'театральна вистава')">Перевірити</button>
+        <span id="question_26_result"></span>
+        </div>
+        <div class='question-block'><strong>die Universität</strong><br>
+            <div class="option">
+                <input type="radio" name="question_27" value="самостійний" id="question_27_самостійний">
+                <label for="question_27_самостійний">самостійний</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_27" value="університет" id="question_27_університет">
+                <label for="question_27_університет">університет</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_27" value="хор" id="question_27_хор">
+                <label for="question_27_хор">хор</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_27" value="дорослий/доросла" id="question_27_дорослий/доросла">
+                <label for="question_27_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_27', 'університет')">Перевірити</button>
+        <span id="question_27_result"></span>
+        </div>
+        <div class='question-block'><strong>die WhatsApp-Nachricht</strong><br>
+            <div class="option">
+                <input type="radio" name="question_28" value="повідомлення в WhatsApp" id="question_28_повідомлення в WhatsApp">
+                <label for="question_28_повідомлення в WhatsApp">повідомлення в WhatsApp</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_28" value="граматика" id="question_28_граматика">
+                <label for="question_28_граматика">граматика</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_28" value="бабуся" id="question_28_бабуся">
+                <label for="question_28_бабуся">бабуся</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_28" value="потім" id="question_28_потім">
+                <label for="question_28_потім">потім</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_28', 'повідомлення в WhatsApp')">Перевірити</button>
+        <span id="question_28_result"></span>
+        </div>
+        <h2>Verben</h2><div class='question-block'><strong>aufhören</strong><br>
+            <div class="option">
+                <input type="radio" name="question_29" value="припиняти" id="question_29_припиняти">
+                <label for="question_29_припиняти">припиняти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_29" value="шарф" id="question_29_шарф">
+                <label for="question_29_шарф">шарф</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_29" value="іноземна мова" id="question_29_іноземна мова">
+                <label for="question_29_іноземна мова">іноземна мова</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_29" value="дружба" id="question_29_дружба">
+                <label for="question_29_дружба">дружба</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_29', 'припиняти')">Перевірити</button>
+        <span id="question_29_result"></span>
+        </div>
+        <div class='question-block'><strong>ausprobieren</strong><br>
+            <div class="option">
+                <input type="radio" name="question_30" value="проте" id="question_30_проте">
+                <label for="question_30_проте">проте</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_30" value="під" id="question_30_під">
+                <label for="question_30_під">під</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_30" value="дорослий/доросла" id="question_30_дорослий/доросла">
+                <label for="question_30_дорослий/доросла">дорослий/доросла</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_30" value="спробувати" id="question_30_спробувати">
+                <label for="question_30_спробувати">спробувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_30', 'спробувати')">Перевірити</button>
+        <span id="question_30_result"></span>
+        </div>
+        <div class='question-block'><strong>bearbeiten</strong><br>
+            <div class="option">
+                <input type="radio" name="question_31" value="обробляти" id="question_31_обробляти">
+                <label for="question_31_обробляти">обробляти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_31" value="іноземна мова" id="question_31_іноземна мова">
+                <label for="question_31_іноземна мова">іноземна мова</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_31" value="падати" id="question_31_падати">
+                <label for="question_31_падати">падати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_31" value="передача" id="question_31_передача">
+                <label for="question_31_передача">передача</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_31', 'обробляти')">Перевірити</button>
+        <span id="question_31_result"></span>
+        </div>
+        <div class='question-block'><strong>erklären</strong><br>
+            <div class="option">
+                <input type="radio" name="question_32" value="пояснювати" id="question_32_пояснювати">
+                <label for="question_32_пояснювати">пояснювати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_32" value="батьківські збори" id="question_32_батьківські збори">
+                <label for="question_32_батьківські збори">батьківські збори</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_32" value="село" id="question_32_село">
+                <label for="question_32_село">село</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_32" value="наразі" id="question_32_наразі">
+                <label for="question_32_наразі">наразі</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_32', 'пояснювати')">Перевірити</button>
+        <span id="question_32_result"></span>
+        </div>
+        <div class='question-block'><strong>hinfallen</strong><br>
+            <div class="option">
+                <input type="radio" name="question_33" value="спробувати" id="question_33_спробувати">
+                <label for="question_33_спробувати">спробувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_33" value="піаніно" id="question_33_піаніно">
+                <label for="question_33_піаніно">піаніно</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_33" value="граматика" id="question_33_граматика">
+                <label for="question_33_граматика">граматика</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_33" value="падати" id="question_33_падати">
+                <label for="question_33_падати">падати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_33', 'падати')">Перевірити</button>
+        <span id="question_33_result"></span>
+        </div>
+        <div class='question-block'><strong>nähen</strong><br>
+            <div class="option">
+                <input type="radio" name="question_34" value="шити" id="question_34_шити">
+                <label for="question_34_шити">шити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_34" value="негативний" id="question_34_негативний">
+                <label for="question_34_негативний">негативний</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_34" value="страх" id="question_34_страх">
+                <label for="question_34_страх">страх</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_34" value="під" id="question_34_під">
+                <label for="question_34_під">під</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_34', 'шити')">Перевірити</button>
+        <span id="question_34_result"></span>
+        </div>
+        <div class='question-block'><strong>programmieren</strong><br>
+            <div class="option">
+                <input type="radio" name="question_35" value="наразі" id="question_35_наразі">
+                <label for="question_35_наразі">наразі</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_35" value="падати" id="question_35_падати">
+                <label for="question_35_падати">падати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_35" value="театральна вистава" id="question_35_театральна вистава">
+                <label for="question_35_театральна вистава">театральна вистава</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_35" value="програмувати" id="question_35_програмувати">
+                <label for="question_35_програмувати">програмувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_35', 'програмувати')">Перевірити</button>
+        <span id="question_35_result"></span>
+        </div>
+        <div class='question-block'><strong>rechnen</strong><br>
+            <div class="option">
+                <input type="radio" name="question_36" value="ролики" id="question_36_ролики">
+                <label for="question_36_ролики">ролики</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_36" value="рахувати" id="question_36_рахувати">
+                <label for="question_36_рахувати">рахувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_36" value="презентація" id="question_36_презентація">
+                <label for="question_36_презентація">презентація</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_36" value="програмувати" id="question_36_програмувати">
+                <label for="question_36_програмувати">програмувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_36', 'рахувати')">Перевірити</button>
+        <span id="question_36_result"></span>
+        </div>
+        <div class='question-block'><strong>reden</strong><br>
+            <div class="option">
+                <input type="radio" name="question_37" value="іноземна мова" id="question_37_іноземна мова">
+                <label for="question_37_іноземна мова">іноземна мова</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_37" value="припиняти" id="question_37_припиняти">
+                <label for="question_37_припиняти">припиняти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_37" value="говорити" id="question_37_говорити">
+                <label for="question_37_говорити">говорити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_37" value="дідусь" id="question_37_дідусь">
+                <label for="question_37_дідусь">дідусь</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_37', 'говорити')">Перевірити</button>
+        <span id="question_37_result"></span>
+        </div>
+        <div class='question-block'><strong>singen</strong><br>
+            <div class="option">
+                <input type="radio" name="question_38" value="співати" id="question_38_співати">
+                <label for="question_38_співати">співати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_38" value="іноземна мова" id="question_38_іноземна мова">
+                <label for="question_38_іноземна мова">іноземна мова</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_38" value="пояснювати" id="question_38_пояснювати">
+                <label for="question_38_пояснювати">пояснювати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_38" value="програмувати" id="question_38_програмувати">
+                <label for="question_38_програмувати">програмувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_38', 'співати')">Перевірити</button>
+        <span id="question_38_result"></span>
+        </div>
+        <div class='question-block'><strong>stricken</strong><br>
+            <div class="option">
+                <input type="radio" name="question_39" value="баскетбол" id="question_39_баскетбол">
+                <label for="question_39_баскетбол">баскетбол</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_39" value="в'язати" id="question_39_в'язати">
+                <label for="question_39_в'язати">в'язати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_39" value="легкий" id="question_39_легкий">
+                <label for="question_39_легкий">легкий</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_39" value="проте" id="question_39_проте">
+                <label for="question_39_проте">проте</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_39', 'в'язати')">Перевірити</button>
+        <span id="question_39_result"></span>
+        </div>
+        <div class='question-block'><strong>tragen</strong><br>
+            <div class="option">
+                <input type="radio" name="question_40" value="носити" id="question_40_носити">
+                <label for="question_40_носити">носити</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_40" value="страх" id="question_40_страх">
+                <label for="question_40_страх">страх</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_40" value="бабуся" id="question_40_бабуся">
+                <label for="question_40_бабуся">бабуся</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_40" value="спробувати" id="question_40_спробувати">
+                <label for="question_40_спробувати">спробувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_40', 'носити')">Перевірити</button>
+        <span id="question_40_result"></span>
+        </div>
+        <h2>Adjektive</h2><div class='question-block'><strong>negativ</strong><br>
+            <div class="option">
+                <input type="radio" name="question_41" value="в'язати" id="question_41_в'язати">
+                <label for="question_41_в'язати">в'язати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_41" value="негативний" id="question_41_негативний">
+                <label for="question_41_негативний">негативний</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_41" value="під" id="question_41_під">
+                <label for="question_41_під">під</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_41" value="театральна група" id="question_41_театральна група">
+                <label for="question_41_театральна група">театральна група</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_41', 'негативний')">Перевірити</button>
+        <span id="question_41_result"></span>
+        </div>
+        <div class='question-block'><strong>positiv</strong><br>
+            <div class="option">
+                <input type="radio" name="question_42" value="позитивний" id="question_42_позитивний">
+                <label for="question_42_позитивний">позитивний</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_42" value="повідомлення в WhatsApp" id="question_42_повідомлення в WhatsApp">
+                <label for="question_42_повідомлення в WhatsApp">повідомлення в WhatsApp</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_42" value="дружба" id="question_42_дружба">
+                <label for="question_42_дружба">дружба</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_42" value="учителька німецької мови" id="question_42_учителька німецької мови">
+                <label for="question_42_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_42', 'позитивний')">Перевірити</button>
+        <span id="question_42_result"></span>
+        </div>
+        <div class='question-block'><strong>selbstständig</strong><br>
+            <div class="option">
+                <input type="radio" name="question_43" value="співати" id="question_43_співати">
+                <label for="question_43_співати">співати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_43" value="баскетбол" id="question_43_баскетбол">
+                <label for="question_43_баскетбол">баскетбол</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_43" value="театральна вистава" id="question_43_театральна вистава">
+                <label for="question_43_театральна вистава">театральна вистава</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_43" value="самостійний" id="question_43_самостійний">
+                <label for="question_43_самостійний">самостійний</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_43', 'самостійний')">Перевірити</button>
+        <span id="question_43_result"></span>
+        </div>
+        <div class='question-block'><strong>leicht</strong><br>
+            <div class="option">
+                <input type="radio" name="question_44" value="співати" id="question_44_співати">
+                <label for="question_44_співати">співати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_44" value="водійське посвідчення" id="question_44_водійське посвідчення">
+                <label for="question_44_водійське посвідчення">водійське посвідчення</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_44" value="під" id="question_44_під">
+                <label for="question_44_під">під</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_44" value="легкий" id="question_44_легкий">
+                <label for="question_44_легкий">легкий</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_44', 'легкий')">Перевірити</button>
+        <span id="question_44_result"></span>
+        </div>
+        <h2>Andere Wörter</h2><div class='question-block'><strong>auswendig</strong><br>
+            <div class="option">
+                <input type="radio" name="question_45" value="театральна вистава" id="question_45_театральна вистава">
+                <label for="question_45_театральна вистава">театральна вистава</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_45" value="програмувати" id="question_45_програмувати">
+                <label for="question_45_програмувати">програмувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_45" value="спробувати" id="question_45_спробувати">
+                <label for="question_45_спробувати">спробувати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_45" value="напам'ять" id="question_45_напам'ять">
+                <label for="question_45_напам'ять">напам'ять</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_45', 'напам'ять')">Перевірити</button>
+        <span id="question_45_result"></span>
+        </div>
+        <div class='question-block'><strong>danach</strong><br>
+            <div class="option">
+                <input type="radio" name="question_46" value="гітара" id="question_46_гітара">
+                <label for="question_46_гітара">гітара</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_46" value="потім" id="question_46_потім">
+                <label for="question_46_потім">потім</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_46" value="бабуся" id="question_46_бабуся">
+                <label for="question_46_бабуся">бабуся</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_46" value="самостійний" id="question_46_самостійний">
+                <label for="question_46_самостійний">самостійний</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_46', 'потім')">Перевірити</button>
+        <span id="question_46_result"></span>
+        </div>
+        <div class='question-block'><strong>doch</strong><br>
+            <div class="option">
+                <input type="radio" name="question_47" value="проте" id="question_47_проте">
+                <label for="question_47_проте">проте</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_47" value="гітара" id="question_47_гітара">
+                <label for="question_47_гітара">гітара</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_47" value="припиняти" id="question_47_припиняти">
+                <label for="question_47_припиняти">припиняти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_47" value="спробувати" id="question_47_спробувати">
+                <label for="question_47_спробувати">спробувати</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_47', 'проте')">Перевірити</button>
+        <span id="question_47_result"></span>
+        </div>
+        <div class='question-block'><strong>einmal</strong><br>
+            <div class="option">
+                <input type="radio" name="question_48" value="легкий" id="question_48_легкий">
+                <label for="question_48_легкий">легкий</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_48" value="учителька німецької мови" id="question_48_учителька німецької мови">
+                <label for="question_48_учителька німецької мови">учителька німецької мови</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_48" value="напам'ять" id="question_48_напам'ять">
+                <label for="question_48_напам'ять">напам'ять</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_48" value="одного разу" id="question_48_одного разу">
+                <label for="question_48_одного разу">одного разу</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_48', 'одного разу')">Перевірити</button>
+        <span id="question_48_result"></span>
+        </div>
+        <div class='question-block'><strong>unter</strong><br>
+            <div class="option">
+                <input type="radio" name="question_49" value="іспит на атестат зрілості" id="question_49_іспит на атестат зрілості">
+                <label for="question_49_іспит на атестат зрілості">іспит на атестат зрілості</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_49" value="обробляти" id="question_49_обробляти">
+                <label for="question_49_обробляти">обробляти</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_49" value="пояснювати" id="question_49_пояснювати">
+                <label for="question_49_пояснювати">пояснювати</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_49" value="під" id="question_49_під">
+                <label for="question_49_під">під</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_49', 'під')">Перевірити</button>
+        <span id="question_49_result"></span>
+        </div>
+        <div class='question-block'><strong>zurzeit</strong><br>
+            <div class="option">
+                <input type="radio" name="question_50" value="печиво" id="question_50_печиво">
+                <label for="question_50_печиво">печиво</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_50" value="потім" id="question_50_потім">
+                <label for="question_50_потім">потім</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_50" value="батьківські збори" id="question_50_батьківські збори">
+                <label for="question_50_батьківські збори">батьківські збори</label>
+            </div>
+            
+            <div class="option">
+                <input type="radio" name="question_50" value="наразі" id="question_50_наразі">
+                <label for="question_50_наразі">наразі</label>
+            </div>
+            
+        <button onclick="checkAnswer('question_50', 'наразі')">Перевірити</button>
+        <span id="question_50_result"></span>
+        </div>
+        
+</body>
+</html>
