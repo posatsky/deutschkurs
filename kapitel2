@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapitel 1 - Раді познайомитися</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 10px; text-decoration: none; color: blue; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Головна</a>
+        </nav>
+        <h1>Kapitel 1 - Раді познайомитися</h1>
+        <table>
+            <tr>
+                <th>#</th><th>Німецька</th>
+                <th>Українська</th>
+            </tr>
+            <tr><td>1</td><td> die Kasse, -n</td><td>каса</td></tr>
+            <tr><td>2</td><td> einräumen</td><td>прибирати (на полицю), ставити</td></tr>
+            <tr><td>3</td><td> der Moment, -e</td><td>момент</td></tr>
+            <tr><td>4</td><td> das Schreiben</td><td>письмо, офіційний документ</td></tr>
+            <tr><td>5</td><td> äußern</td><td>виражати, висловлювати</td></tr>
+            <tr><td>6</td><td> die Fabrik, -en</td><td>фабрика</td></tr>
+            <tr><td>7</td><td> interkulturell</td><td>міжкультурний</td></tr>
+            <tr><td>8</td><td> das Krankenhaus, -̈er</td><td>лікарня</td></tr>
+            <tr><td>9</td><td> die Stellungnahme, -n</td><td>висловлення (думки), позиція</td></tr>
+            <tr><td>10</td><td> die Sache, -n</td><td>річ</td></tr>
+            <tr><td>11</td><td> der Teil, -e</td><td>частина</td></tr>
+            <tr><td>12</td><td> der Herd, -e</td><td>плита</td></tr>
+            <tr><td>13</td><td> die Kaffeemaschine, -n</td><td>кавоварка</td></tr>
+            <tr><td>14</td><td> das Kissen</td><td>подушка</td></tr>
+            <tr><td>15</td><td> die Mikrowelle, -n</td><td>мікрохвильовка</td></tr>
+            <tr><td>16</td><td> die Pflanze, -n</td><td>рослина</td></tr>
+            <tr><td>17</td><td> das Regal, -e</td><td>полиця</td></tr>
+            <tr><td>18</td><td> der Spiegel</td><td>дзеркало</td></tr>
+            <tr><td>19</td><td> die Spülmaschine, -n</td><td>посудомийна машина</td></tr>
+            <tr><td>20</td><td> der Teppich, -e</td><td>килим</td></tr>
+            <tr><td>21</td><td> der Umzug, -̈e</td><td>переїзд</td></tr>
+            <tr><td>22</td><td> ausziehen</td><td>виїжджати</td></tr>
+            <tr><td>23</td><td> der Lieferwagen</td><td>фургон</td></tr>
+            <tr><td>24</td><td> das Möbelhaus, -̈er</td><td>меблевий магазин</td></tr>
+            <tr><td>25</td><td> froh</td><td>радісний</td></tr>
+            <tr><td>26</td><td> tragen</td><td>нести</td></tr>
+            <tr><td>27</td><td> der Couchtisch, -e</td><td>журнальний столик</td></tr>
+            <tr><td>28</td><td> das Haushaltsgerät, -e</td><td>побутовий прилад</td></tr>
+            <tr><td>29</td><td> der Staubsauger</td><td>пилосос</td></tr>
+            <tr><td>30</td><td> die Decke, -n</td><td>одіяло, стеля</td></tr>
+            <tr><td>31</td><td> der Karton, -s</td><td>коробка</td></tr>
+            <tr><td>32</td><td> verschenken</td><td>дарувати</td></tr>
+            <tr><td>33</td><td> die Kaution, -en</td><td>залог</td></tr>
+            <tr><td>34</td><td> der Makler</td><td>ріелтор</td></tr>
+            <tr><td>35</td><td> die Unterkunft, -̈e</td><td>житло</td></tr>
+            <tr><td>36</td><td> der Vogel, -̈</td><td>птах</td></tr>
+            <tr><td>37</td><td> der Flohmarkt, -̈e</td><td>блошиний ринок</td></tr>
+            <tr><td>38</td><td> gebraucht</td><td>вживаний</td></tr>
+            <tr><td>39</td><td> der Strom</td><td>електрика</td></tr>
+            <tr><td>40</td><td> die Glühbirne, -n</td><td>лампочка</td></tr>
+            <tr><td>41</td><td> die Leiter, -n</td><td>драбина</td></tr>
+            <tr><td>42</td><td> spülen</td><td>мити (посуду)</td></tr>
+            <tr><td>43</td><td> das Elektrogerät, -e</td><td>електропристрій</td></tr>
+        </table>
+    </div>
+</body>
+</html>
