@@ -15,6 +15,109 @@
     </style>
 </head>
 <body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Головна</a>
+        </nav>
+        <h1>Kapitel 1 - Раді познайомитися (гра)</h1>
+        <div id="game">
+            <p id="word">Завантаження...</p>
+            <div class="options" id="options"></div>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            {de: "die Kasse", ua: "каса"},
+            {de: "einräumen", ua: "прибирати (на полицю), ставити"},
+            {de: "der Moment", ua: "момент"},
+            {de: "das Schreiben", ua: "письмо, офіційний документ"},
+            {de: "äußern", ua: "виражати, висловлювати"},
+            {de: "die Fabrik", ua: "фабрика"},
+            {de: "interkulturell", ua: "міжкультурний"},
+            {de: "das Krankenhaus", ua: "лікарня"},
+            {de: "die Stellungnahme", ua: "висловлення (думки), позиція"},
+            {de: "die Sache", ua: "річ"},
+            {de: "der Teil", ua: "частина"},
+            {de: "der Herd", ua: "плита"},
+            {de: "die Kaffeemaschine", ua: "кавоварка"},
+            {de: "das Kissen", ua: "подушка"},
+            {de: "die Mikrowelle", ua: "мікрохвильовка"},
+            {de: "die Pflanze", ua: "рослина"},
+            {de: "das Regal", ua: "полиця"},
+            {de: "der Spiegel", ua: "дзеркало"},
+            {de: "die Spülmaschine", ua: "посудомийна машина"},
+            {de: "der Teppich", ua: "килим"},
+            {de: "der Umzug", ua: "переїзд"},
+            {de: "ausziehen", ua: "виїжджати"},
+            {de: "der Lieferwagen", ua: "фургон"},
+            {de: "das Möbelhaus", ua: "меблевий магазин"},
+            {de: "froh", ua: "радісний"},
+            {de: "tragen", ua: "нести"},
+            {de: "der Couchtisch", ua: "журнальний столик"},
+            {de: "das Haushaltsgerät", ua: "побутовий прилад"},
+            {de: "der Staubsauger", ua: "пилосос"},
+            {de: "die Decke", ua: "одіяло, стеля"},
+            {de: "der Karton", ua: "коробка"},
+            {de: "verschenken", ua: "дарувати"},
+            {de: "die Kaution", ua: "залог"},
+            {de: "der Makler", ua: "ріелтор"},
+            {de: "die Unterkunft", ua: "житло"},
+            {de: "der Vogel", ua: "птах"},
+            {de: "der Flohmarkt", ua: "блошиний ринок"},
+            {de: "gebraucht", ua: "вживаний"},
+            {de: "der Strom", ua: "електрика"},
+            {de: "die Glühbirne", ua: "лампочка"},
+            {de: "die Leiter", ua: "драбина"},
+            {de: "spülen", ua: "мити (посуду)"},
+            {de: "das Elektrogerät", ua: "електропристрій"}
+        ];
+
+        let currentWord;
+
+        function newWord() {
+            if (!words.length) return;
+
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById('word').textContent = currentWord.de;
+            document.getElementById('result').textContent = '';
+
+            const options = [currentWord.ua];
+            while (options.length < 4) {
+                let option = words[Math.floor(Math.random() * words.length)].ua;
+                if (!options.includes(option)) {
+                    options.push(option);
+                }
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selected) {
+            const result = document.getElementById('result');
+            if (selected === currentWord.ua) {
+                result.textContent = "Правильно!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Неправильно. Правильна відповідь: " + currentWord.ua;
+                result.style.color = "red";
+            }
+
+            setTimeout(newWord, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', newWord);
+    </script>
     <div class="container">
         <nav>
             <a href="index.html">Головна</a>
