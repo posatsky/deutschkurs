@@ -32,7 +32,7 @@
             border-radius: 8px;
             margin-bottom: 15px;
         }
-        select, button {
+        select {
             padding: 10px;
             font-size: 16px;
             width: 100%;
@@ -50,23 +50,22 @@
 </head>
 <body>
 <div class="container">
-    <h2>Де знаходиться хом'як? (Wo ist der Hamster?)</h2>
+    <h2>Wo ist der Hamster?</h2>
     <img id="hamster-image" src="" alt="Хом'як і клітка">
-    <select id="answer">
-        <option value="">Виберіть правильний варіант</option>
-        <option value="im">sitzt im Käfig</option>
-        <option value="auf dem">sitzt auf dem Käfig</option>
-        <option value="neben dem">steht neben dem Käfig</option>
-        <option value="vor dem">steht vor dem Käfig</option>
-        <option value="hinter dem">sitzt hinter dem Käfig</option>
-        <option value="unter dem">steht unter dem Käfig</option>
-        <option value="zwischen den">sitzt zwischen den Käfigen</option>
+    <select id="answer" onchange="checkAnswer()">
+        <option value="">Wählen Sie die richtige Option.</option>
+        <option value="im">im Käfig</option>
+        <option value="auf dem">auf dem Käfig</option>
+        <option value="neben dem">neben dem Käfig</option>
+        <option value="vor dem">vor dem Käfig</option>
+        <option value="hinter dem">hinter dem Käfig</option>
+        <option value="unter dem">unter dem Käfig</option>
+        <option value="zwischen den">zwischen den Käfigen</option>
         <option value="über dem">über dem Käfig</option>
         <option value="hängt">hängt am Käfig</option>
     </select>
-    <button onclick="checkAnswer()">Перевірити відповідь</button>
     <div class="result" id="result"></div>
-    <button onclick="nextQuestion()">Наступне питання</button>
+    <button onclick="nextQuestion()">Nächste Frage</button>
 </div>
 
 <script>
@@ -74,7 +73,7 @@ const images = [
     {src: 'im.webp', correct: 'im'},
     {src: 'auf.webp', correct: 'auf dem'},
     {src: 'neben.webp', correct: 'neben dem'},
-    {src: 'vor.webp', correct: 'vor dem'},
+    {src: 'vor.png', correct: 'vor dem'},
     {src: 'hinter.webp', correct: 'hinter dem'},
     {src: 'unter.webp', correct: 'unter dem'},
     {src: 'zwischen.webp', correct: 'zwischen den'},
@@ -94,6 +93,11 @@ function nextQuestion() {
 function checkAnswer() {
     const userAnswer = document.getElementById('answer').value;
     const resultDiv = document.getElementById('result');
+
+    if (!userAnswer) {
+        resultDiv.textContent = '';
+        return;
+    }
 
     if (userAnswer === currentImage.correct) {
         resultDiv.textContent = 'Правильно! (Richtig!) 🎉';
