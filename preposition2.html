@@ -5,11 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Гра на прийменники з хом'яком</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { display: flex; flex-direction: column; align-items: center; }
-        img { width: 300px; height: 300px; border-radius: 8px; margin-bottom: 10px; }
-        select, button { padding: 10px; font-size: 16px; margin-top: 10px; }
-        .result { font-weight: bold; margin-top: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -18,14 +54,14 @@
     <img id="hamster-image" src="" alt="Хом'як і клітка">
     <select id="answer">
         <option value="">Виберіть правильний варіант</option>
-        <option value="im">im Käfig </option>
+        <option value="im">im Käfig</option>
         <option value="auf dem">auf dem Käfig</option>
-        <option value="neben dem">neben dem Käfig </option>
-        <option value="vor dem">vor dem Käfig </option>
-        <option value="hinter dem">hinter dem Käfig </option>
-        <option value="unter dem">unter dem Käfig </option>
-        <option value="zwischen den">zwischen den Käfigen </option>
-        <option value="über dem">über dem Käfig </option>
+        <option value="neben dem">neben dem Käfig</option>
+        <option value="vor dem">vor dem Käfig</option>
+        <option value="hinter dem">hinter dem Käfig</option>
+        <option value="unter dem">unter dem Käfig</option>
+        <option value="zwischen den">zwischen den Käfigen</option>
+        <option value="über dem">über dem Käfig</option>
         <option value="hängt">hängt am Käfig</option>
     </select>
     <button onclick="checkAnswer()">Перевірити відповідь</button>
@@ -43,7 +79,7 @@ const images = [
     {src: 'unter.webp', correct: 'unter dem'},
     {src: 'zwischen.webp', correct: 'zwischen den'},
     {src: 'uber.webp', correct: 'über dem'},
-    {src: 'hängt', correct: 'hängt'}
+    {src: 'hängt.webp', correct: 'hängt'}
 ];
 
 let currentImage = {};
