@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapitel – Kleidung</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 10px; text-decoration: none; color: blue; font-size: 18px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 14px; text-align: left; font-size: 18px; }
+        th { background-color: #f4f4f4; }
+        .options button {
+            font-size: 20px;
+            padding: 16px 24px;
+            margin: 10px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #word {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Головна</a>
+        </nav>
+        <h1>Kapitel – Kleidung (гра)</h1>
+        <div id="game">
+            <p id="word">Завантаження...</p>
+            <div class="options" id="options"></div>
+            <div class="result" id="result"></div>
+        </div>
+
+        <h2>Список слів</h2>
+        <table id="wordlist">
+            <tr><th>#</th><th>Німецька</th><th>Українська</th></tr>
+        </table>
+    </div>
+
+    <script>
+        const words = [
+            // Nomen
+            {de: "der Anzug", ua: "костюм"},
+            {de: "der Augenblick", ua: "мить"},
+            {de: "die Bluse", ua: "блузка"},
+            {de: "die Erinnerung", ua: "спогад"},
+            {de: "das Fundbüro", ua: "бюро знахідок"},
+            {de: "die Größe", ua: "розмір"},
+            {de: "die Handtasche", ua: "жіноча сумочка"},
+            {de: "das Hemd", ua: "сорочка"},
+            {de: "die Hose", ua: "штани"},
+            {de: "der Hut", ua: "капелюх"},
+            {de: "die Information", ua: "інформація"},
+            {de: "die Jacke", ua: "куртка"},
+            {de: "das Kaufhaus", ua: "універмаг"},
+            {de: "die Kette", ua: "намисто"},
+            {de: "das Kleid", ua: "сукня"},
+            {de: "die Kleidung", ua: "одяг"},
+            {de: "die Kosmetik", ua: "косметика"},
+            {de: "die Krawatte", ua: "краватка"},
+            {de: "der Mantel", ua: "пальто"},
+            {de: "die Mütze", ua: "шапка"},
+            {de: "die Mode", ua: "мода"},
+            {de: "das Parfüm", ua: "парфуми"},
+            {de: "der Pullover", ua: "светр"},
+            {de: "der Quatsch", ua: "дурниці"},
+            {de: "die Regel", ua: "правило"},
+            {de: "der Rock", ua: "спідниця"},
+            {de: "die Rose", ua: "троянда"},
+            {de: "der Schmuck", ua: "прикраси"},
+            {de: "der Slip", ua: "труси"},
+            {de: "die Socke", ua: "шкарпетка"},
+            {de: "der Stiefel", ua: "чобіт"},
+            {de: "der Stoff", ua: "тканина"},
+            {de: "der Strumpf", ua: "панчоха"},
+            {de: "das T-Shirt", ua: "футболка"},
+            {de: "das Tuch", ua: "хустка"},
+            {de: "die Unterhose", ua: "нижня білизна (труси)"},
+            {de: "die Unterwäsche", ua: "спідня білизна"},
+            {de: "die Vorsicht", ua: "обережність"},
+            // Verben
+            {de: "anziehen", ua: "вдягати"},
+            {de: "auffallen", ua: "кидатись в очі"},
+            {de: "heiraten", ua: "одружуватись"},
+            {de: "passen", ua: "пасувати"},
+            {de: "schauen", ua: "дивитись"},
+            {de: "stehen", ua: "стояти"},
+            {de: "versuchen", ua: "пробувати"},
+            {de: "zurechtkommen", ua: "справлятись"},
+            // Adjektive
+            {de: "blond", ua: "світловолосий"},
+            {de: "bunt", ua: "кольоровий"},
+            {de: "elegant", ua: "елегантний"},
+            {de: "eng", ua: "вузький"},
+            {de: "weit", ua: "широкий"},
+            {de: "hübsch", ua: "гарний"},
+            {de: "hässlich", ua: "потворний"},
+            {de: "nötig", ua: "необхідний"},
+            {de: "schick", ua: "стильний"},
+            {de: "verrückt", ua: "божевільний"},
+            // Andere Wörter
+            {de: "absolut", ua: "абсолютно"},
+            {de: "egal", ua: "байдуже"},
+            {de: "nachher", ua: "потім"},
+            {de: "normalerweise", ua: "зазвичай"}
+        ];
+
+        let currentWord;
+
+        function newWord() {
+            if (!words.length) return;
+
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById('word').textContent = currentWord.de;
+            document.getElementById('result').textContent = '';
+
+            const options = [currentWord.ua];
+            while (options.length < 4) {
+                let option = words[Math.floor(Math.random() * words.length)].ua;
+                if (!options.includes(option)) {
+                    options.push(option);
+                }
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selected) {
+            const result = document.getElementById('result');
+            if (selected === currentWord.ua) {
+                result.textContent = "Правильно!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Неправильно. Правильна відповідь: " + currentWord.ua;
+                result.style.color = "red";
+            }
+            setTimeout(newWord, 2000);
+        }
+
+        function renderTable() {
+            const table = document.getElementById('wordlist');
+            for (let i = 0; i < words.length; i++) {
+                const row = document.createElement('tr');
+                const cellNum = document.createElement('td');
+                const cellDe = document.createElement('td');
+                const cellUa = document.createElement('td');
+                cellNum.textContent = i + 1;
+                cellDe.textContent = words[i].de;
+                cellUa.textContent = words[i].ua;
+                row.appendChild(cellNum);
+                row.appendChild(cellDe);
+                row.appendChild(cellUa);
+                table.appendChild(row);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            newWord();
+            renderTable();
+        });
+    </script>
+
+</body>
+</html>
